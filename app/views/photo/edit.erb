@@ -1,0 +1,13 @@
+<form action="/photos/<%=@photo.id%>/edit" method = "POST">
+  <input type="hidden" name="_method" value="PUT">
+  <input type="hidden" value="photo[id]">
+  <img src="data:image/png;base64,<%=encode(@photo)%>" width="400" class="photo-edit"><br><br>
+    <input type="text" name="photo[name]" value=<%= @photo.name %>><br><br>
+    <input type="text" name="photo[location]" value="<%= @photo.location %>">
+    <p>
+      <TEXTAREA ROWS="10" COLS="50" name="photo[description]" ><%= @photo.description %></TEXTAREA>
+    </p>
+    <p>Last Updated: <%= updated_time(@photo) %></p>
+  <input type="submit" value="Submit">
+</form>
+
