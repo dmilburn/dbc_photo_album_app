@@ -1,8 +1,9 @@
 #albums routes
+enable :sessions
 
 #show all
 get '/albums' do
-  "show all albums"
+  "show all albums for #{current_user.name}"
 end
 
 post '/albums' do
