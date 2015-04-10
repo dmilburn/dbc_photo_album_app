@@ -15,6 +15,7 @@ gem 'bcrypt-ruby'
 gem 'rake'
 
 gem 'shotgun'
+gem 'haml'
 
 gem 'sinatra-flash'
 
