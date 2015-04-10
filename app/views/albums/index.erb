@@ -1,6 +1,9 @@
 <h1> Albums <h1>
 
-<!-- refactor into show_albums -->
+<%@albums.each do |album| %>
+	
+	<a href="<%=album_url(album)%>"> <%= album.name %></a>
+<%end%>
 
 <!-- button goes to album -->
 <form method="POST" action="/albums/id">

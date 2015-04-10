@@ -2,6 +2,7 @@
 
 #show all
 get '/albums' do
+  @albums = Album.all
   erb :'/albums/index'
 end
 
