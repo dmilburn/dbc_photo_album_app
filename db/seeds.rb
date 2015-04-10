@@ -5,3 +5,10 @@
 
 
 
+User.create(name: "email", password: "monkey")
+
+Album.create(name: "Awesome", user_id: 1)
+
+read_picture = File.open("/Users/apprentice/Desktop/Drake4.jpg", 'rb').read
+
+Photo.create(image: read_picture, album_id: 1)
