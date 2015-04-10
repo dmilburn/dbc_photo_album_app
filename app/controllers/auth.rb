@@ -15,6 +15,7 @@ post '/login' do
     session[:user_id] = user.id
     redirect '/albums'
   else
+    flash[:error] = "Could not find your account. Please try again."
     redirect '/login'
   end
 end

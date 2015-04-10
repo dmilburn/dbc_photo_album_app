@@ -1,9 +1,4 @@
-<!-- placeholder button to take you to albums until we establish user auth -->
-
-<!-- <form method="POST" action="/albums">
-<input type="submit" value="Albums">
-</form>
- -->
+<div class="entry-error"><%= flash[:error] if flash[:error] %></div>
 
 <form action='/login' method='POST'>
   <p>Username: <input type= 'text' name= 'name'></p>
