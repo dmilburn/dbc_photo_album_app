@@ -13,7 +13,11 @@ end
 #Handle POST-request (Receive and save the uploaded file)
 post "/photos/upload" do
   upload_pic = File.open(params['upload_photo'][:tempfile], "rb").read
-  new_photo = Photo.create(image: upload_pic, album_id: 1)
+  new_photo = Photo.create(image: upload_pic,
+                          name: params[:photo_name],
+                          description: params[:description],
+                          location: params[:location],
+                          album_id: 1)
   redirect "/photos/#{new_photo.id}"
 end
 
@@ -41,9 +45,9 @@ put '/photos/:id/edit' do |id|
 end
 
 #delete a photo
-
-delete '/photos/:id/delete' do |id|
+delete '/photos/:id' do |id|
   photo = Photo.find(id)
   photo.destroy
-  redirect '../albums'
+  "This will redirect to the delete photo's album"
+  #redirect '../albums'
 end
