@@ -1,5 +1,8 @@
 <!-- show a single album with it's photos -->
 
 <!-- single album view -->
+<h1><%=@album.name%></h1>
+<% @photos.each do |photo| %>
+<img alt="Embedded Image" src="data:image/png;base64,<%=Base64.encode64(photo.image) %>"/>
 
-<%= erb :_show_album, object: @album %>
+<%end%>

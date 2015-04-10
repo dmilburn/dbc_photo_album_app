@@ -13,6 +13,9 @@ end
 #show one album
 get '/albums/:id' do |id|
   @album = Album.find(id)
+  @photos = @album.photos
+    puts @photos
+    puts @photos.class
   erb :'albums/show'
 end
 
