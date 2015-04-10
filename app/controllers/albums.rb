@@ -14,7 +14,7 @@ end
 
 get '/albums/:id/edit' do |id|
   @album = album.find(id)
-  erb: 'albums/edit'
+  erb :'albums/edit'
 end
 
 put '/albums/:id/edit' do |id|

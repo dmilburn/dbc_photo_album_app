@@ -23,7 +23,7 @@ end
 #edit photo
 get '/photos/:id/edit' do |id|
   @photo = Photo.find(id)
-  erb: 'photos/edit'
+  erb :'photos/edit'
 end
 
 put '/photos/:id/edit' do |id|
