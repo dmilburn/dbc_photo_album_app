@@ -2,7 +2,9 @@
 
 <!-- single album view -->
 <h1><%=@album.name%></h1>
+
+
 <% @photos.each do |photo| %>
-<img alt="Embedded Image" src="data:image/png;base64,<%=Base64.encode64(photo.image) %>"/>
+<img alt="Embedded Image" src="data:image/png;base64,<%=encode(photo)%>"/>
 
 <%end%>
