@@ -15,6 +15,9 @@ gem 'bcrypt-ruby'
 gem 'rake'
 
 gem 'shotgun'
+gem 'haml'
+
+gem 'sinatra-flash'
 
 group :test do
   gem 'shoulda-matchers'

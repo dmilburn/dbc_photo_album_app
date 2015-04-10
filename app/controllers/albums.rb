@@ -1,4 +1,5 @@
 #albums routes
+enable :sessions
 
 #show all
 get '/albums' do
