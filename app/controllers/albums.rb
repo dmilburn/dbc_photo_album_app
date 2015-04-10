@@ -15,7 +15,6 @@ get '/albums/:id' do |id|
   erb :'albums/show'
 end
 
-
 #edit album
 
 get '/albums/:id/edit' do |id|
