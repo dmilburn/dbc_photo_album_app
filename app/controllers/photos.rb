@@ -22,7 +22,8 @@ post "/photos/upload" do
 end
 
 get '/photos/:id' do |photo_id|
-  photo_binary = Photo.find(photo_id).image
+  @photo_object =  Photo.find(photo_id)
+  photo_binary = @photo_object.image
   @photo = Base64.encode64(photo_binary)
   erb :'photo/show'
 end
