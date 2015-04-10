@@ -14,7 +14,8 @@ get '/albums/:id' do |id|
   "show an album"
 end
 
-#edit albumgit p
+
+#edit album
 
 get '/albums/:id/edit' do |id|
   @album = album.find(id)
