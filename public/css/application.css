@@ -1,4 +1,13 @@
-nav{
+
+.container {
+    margin: 80px auto;
+    width: 90%;
+    padding: 10px 20px 20px 20px;
+    border: 2px solid black;
+}
+
+
+/*nav{
     height: 70px;
     background-color: rgb(240,240,240);
     background-image: gray;
@@ -12,12 +21,7 @@ body{
     color: rgb(205,205,205);
 }
 
-.container {
-    margin: 80px auto;
-    width: 90%;
-    padding: 10px 20px 20px 20px;
-    border: 2px solid black;
-}
+
 
 th {
     text-align: left;
@@ -47,4 +51,4 @@ text-decoration: none;
 
 a:visited{
     text-decoration: none;
-}
+}*/

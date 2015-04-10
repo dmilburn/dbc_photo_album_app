@@ -3,7 +3,8 @@ enable :sessions
 
 #show all
 get '/albums' do
-  "show all albums for #{current_user.name}"
+  @albums = Album.all
+  erb :'/albums/index'
 end
 
 post '/albums' do
@@ -12,7 +13,11 @@ end
 
 #show one album
 get '/albums/:id' do |id|
-  "show an album"
+  @album = Album.find(id)
+  @photos = @album.photos
+    puts @photos
+    puts @photos.class
+  erb :'albums/show'
 end
 
 #edit album
