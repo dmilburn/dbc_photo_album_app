@@ -2,7 +2,7 @@
 
 #show all
 get '/albums' do
-  "show all albums"
+  erb :'/albums/index'
 end
 
 post '/albums' do
@@ -11,7 +11,8 @@ end
 
 #show one album
 get '/albums/:id' do |id|
-  "show an album"
+  @album = Album.find(id)
+  erb :'albums/show'
 end
 
 
