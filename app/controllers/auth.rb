@@ -1,7 +1,6 @@
-# get '/' do
-#   "hello"
-#   # erb :welcome
-# end
+get '/' do
+  erb :welcome
+end
 
 get '/login' do
 
