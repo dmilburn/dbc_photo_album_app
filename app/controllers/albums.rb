@@ -2,12 +2,16 @@
 
 #show all
 get '/albums' do
-"show all albums"
+  "show all albums"
+end
+
+post '/albums' do
+	redirect '/albums'
 end
 
 #show one album
 get '/albums/:id' do |id|
-"show an album"
+  "show an album"
 end
 
 #edit album
