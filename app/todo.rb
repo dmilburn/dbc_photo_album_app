@@ -1,9 +1,3 @@
-# album crud
-
-# photos aren't getting uploaded to right album
-
-
-
 # debbie
 
 # validations for each page
@@ -14,7 +8,8 @@
 # shiny but important
 # nav bar
 # photo layout
-# 
+
+
 
 
 
@@ -43,6 +38,8 @@
 
 
 ######## UI
+
+# delete button in nav bar for deleting THIS album/photo
 # implement SASS
 
 # filter by tags
