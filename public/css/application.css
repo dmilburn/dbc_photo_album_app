@@ -4,13 +4,13 @@ body{
 
 nav{
     background-color: rgba(230,230,230, .8);
-    height: 70px;
+    height: 60px;
 }
 
 nav ul{
     list-style-type: none;
     margin: 0;
-    padding: 0;
+    padding-right: 40px;
     overflow: hidden;
 }
 
@@ -21,15 +21,13 @@ li {
 
 a:link, a:visited {
     display:block;
-    width: 120px;
-    padding: 4px;
+    padding: 5px;
     text-decoration: none;
 }
 
 a:hover, a:active{
     background-color: rgb(240,240,240);
 }
-
 
 .container {
     margin: 80px auto;
