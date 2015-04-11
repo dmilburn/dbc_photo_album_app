@@ -14,13 +14,18 @@ end
 
 #Handle POST-request (Receive and save the uploaded file)
 post "/photos/upload" do
-  upload_pic = File.open(params['upload_photo'][:tempfile], "rb").read
-  photo_album = Album.find_by(name: params['album_name'])
-  new_photo = Photo.create(image: upload_pic,
-                          name: params[:photo_name],
-                          description: params[:description],
-                          location: params[:location],
-                          album_id: photo_album.id)
+  begin
+    upload_pic = File.open(params['upload_photo'][:tempfile], "rb").read
+    photo_album = Album.find_by(name: params['album_name'])
+    new_photo = Photo.create(image: upload_pic,
+                            name: params[:photo_name],
+                            description: params[:description],
+                            location: params[:location],
+                            album_id: photo_album.id)
+  rescue
+    flash[:error] = "Photo could not save. Please try again."
+    redirect 'photos/upload'
+  end
   redirect photo_url(new_photo)
 end
 
