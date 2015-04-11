@@ -7,26 +7,32 @@ require 'haml'
 
 #Handle GET-request (Show the upload form)
 get "/photos/upload" do
-  @albums = Album.all
+  @albums = Album.where(user_id: current_user.id)
   permission_check
   erb :'photo/upload'
 end
 
 #Handle POST-request (Receive and save the uploaded file)
 post "/photos/upload" do
-  upload_pic = File.open(params['upload_photo'][:tempfile], "rb").read
-  photo_album = Album.find_by(name: params['album_name'])
-  new_photo = Photo.create(image: upload_pic,
-                          name: params[:photo_name],
-                          description: params[:description],
-                          location: params[:location],
-                          album_id: photo_album.id)
+  begin
+    upload_pic = File.open(params['upload_photo'][:tempfile], "rb").read
+    photo_album = Album.find_by(name: params['album_name'])
+    new_photo = Photo.create(image: upload_pic,
+                            name: params[:photo_name],
+                            description: params[:description],
+                            location: params[:location],
+                            album_id: photo_album.id)
+  rescue
+    flash[:error] = "Photo could not save. Please try again."
+    redirect 'photos/upload'
+  end
   redirect photo_url(new_photo)
 end
 
 get '/photos/:id' do |photo_id|
   permission_check
   @photo_object =  Photo.find(photo_id)
+  album_ownership_check(@photo_object.album)
   photo_binary = @photo_object.image
   @photo = Base64.encode64(photo_binary)
   erb :'photo/show'
@@ -36,7 +42,8 @@ end
 get '/photos/:id/edit' do |id|
   permission_check
   @photo = Photo.find(id)
-  @albums = Album.all
+  album_ownership_check(@photo.album)
+  @albums = Album.where(user_id: current_user.id)
   erb :'photo/edit'
 end
 
@@ -53,6 +60,4 @@ delete '/photos/:id' do |id|
   album = photo.album
   photo.destroy!
   redirect album_url(album)
-  # "This will redirect to the delete photo's album"
-  #redirect '../albums'
 end

@@ -4,7 +4,7 @@ enable :sessions
 #show all
 get '/albums' do
   permission_check
-  @albums = Album.all
+  @albums = Album.where(user_id: current_user.id)
   @photos = Photo.all
   erb :'/albums/index'
 end
@@ -17,13 +17,19 @@ end
 
 post '/albums' do
   album = Album.create(params[:album])
-  redirect "#{album_url(album)}"
+  if album.valid?
+    redirect album_url(album)
+  else
+    flash[:error] = "Album could not save without a title. Please try again."
+    redirect "/albums/new"
+  end
 end
 
 #show one album
 get '/albums/:id' do |id|
   permission_check
   @album = Album.find(id)
+  album_ownership_check(@album)
   @photos = @album.photos
   erb :'albums/show'
 end
@@ -33,13 +39,19 @@ end
 get '/albums/:id/edit' do |id|
   permission_check
   @album = Album.find(id)
+  album_ownership_check(@album)
   erb :'albums/edit'
 end
 
 put '/albums/:id' do |id|
   album = Album.find(id)
-  album.update(params[:album])
-  redirect "#{album_url(album)}"
+  begin
+  album.update!(params[:album])
+  rescue
+    flash[:error] = "Album update didn't save. Please try again."
+    redirect album_url(album) + "/edit"
+  end
+  redirect album_url(album)
 end
 
 
