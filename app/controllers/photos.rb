@@ -18,7 +18,7 @@ post "/photos/upload" do
                           description: params[:description],
                           location: params[:location],
                           album_id: 1)
-  redirect "/photos/#{new_photo.id}"
+  redirect photo_url(new_photo)
 end
 
 get '/photos/:id' do |photo_id|
@@ -43,13 +43,15 @@ put '/photos/:id/edit' do |id|
   photo = Photo.find(id)
   photo.update(params[:photo])
   puts params[:photo]
-  redirect "/photos/#{photo.id}"
+  redirect photo_url(photo)
 end
 
 #delete a photo
 delete '/photos/:id' do |id|
   photo = Photo.find(id)
-  photo.destroy
-  "This will redirect to the delete photo's album"
+  album = photo.album
+  photo.destroy!
+  redirect album_url(album)
+  # "This will redirect to the delete photo's album"
   #redirect '../albums'
 end
