@@ -27,19 +27,24 @@ end
 #edit album
 
 get '/albums/:id/edit' do |id|
-  @album = album.find(id)
+  @album = Album.find(id)
   erb :'albums/edit'
 end
 
-put '/albums/:id/edit' do |id|
-  album = album.find(id)
+put '/albums/:id' do |id|
+  album = Album.find(id)
   album.update(params[:album])
-  redirect "/album/#{album.id}"
+  redirect "#{album_url(album)}"
 end
+
 
 # delete an album
 delete '/albums/:id/delete' do |id|
   album = Album.find(id)
+  photos = album.photos
   album.destroy
+  photos.each do |photo|
+    photo.destroy
+  end
   redirect '/albums'
 end
