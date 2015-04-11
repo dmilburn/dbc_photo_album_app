@@ -49,7 +49,9 @@ end
 #delete a photo
 delete '/photos/:id' do |id|
   photo = Photo.find(id)
-  photo.destroy
-  "This will redirect to the delete photo's album"
+  album = photo.album
+  photo.destroy!
+  redirect album_url(album)
+  # "This will redirect to the delete photo's album"
   #redirect '../albums'
 end
