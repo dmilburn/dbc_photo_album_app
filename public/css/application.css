@@ -1,3 +1,33 @@
+body{
+    margin: 0;
+}
+
+nav{
+    background-color: rgba(230,230,230, .8);
+    height: 60px;
+}
+
+nav ul{
+    list-style-type: none;
+    margin: 0;
+    padding-right: 40px;
+    overflow: hidden;
+}
+
+li {
+    float: right;
+    padding: 20px 0 20px 0;
+}
+
+a:link, a:visited {
+    display:block;
+    padding: 5px;
+    text-decoration: none;
+}
+
+a:hover, a:active{
+    background-color: rgb(240,240,240);
+}
 
 .container {
     margin: 80px auto;
@@ -9,6 +39,15 @@
 img{
     width:30%;
     margin: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(120,120,120);
+}
+
+a:visited{
+    text-decoration: none;
 }
 
 /*nav{

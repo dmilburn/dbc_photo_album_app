@@ -18,10 +18,17 @@
     <title></title>
   </head>
   <body>
-    <div id="content">
-      <div class ="container">
-        <%= yield %>
-      </div>
-    </body>
-  </html>
-
+    <nav>
+      <!-- add partial for delete album -->
+      <ul>
+        <li><a href="">Sign Out</a></li>
+        <li><a href="">Upload Photo</a></li>
+        <li><a href="">Create Album</a></li>
+    </ul>
+  </nav>
+  <div id="content">
+    <div class ="container">
+      <%= yield %>
+    </div>
+  </body>
+</html>

@@ -1,7 +1,6 @@
 # album crud
 
 
-# need to add route AND functionality for CREATE
 # need to add edit and DELETE functionality
 # need to add edit and DELETE views
 
@@ -27,6 +26,7 @@
 ####### UX
 
 #gifs
+# add a photo by links
 
 # filter by tags
 # comments
@@ -37,6 +37,8 @@
 
 
 ######## UI
+# implement SASS
+
 # filter by tags
 # ajax carosel/pretty UI
 # cursor style
