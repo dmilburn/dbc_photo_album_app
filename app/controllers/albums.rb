@@ -4,7 +4,8 @@ enable :sessions
 #show all
 get '/albums' do
   permission_check
-  @albums = Album.all
+
+  @albums = Album.all.where(user_id: current_user.id)
   erb :'/albums/index'
 end
 
@@ -28,6 +29,7 @@ end
 get '/albums/:id' do |id|
   permission_check
   @album = Album.find(id)
+  album_ownership_check(@album)
   @photos = @album.photos
   erb :'albums/show'
 end
@@ -37,6 +39,7 @@ end
 get '/albums/:id/edit' do |id|
   permission_check
   @album = Album.find(id)
+  album_ownership_check(@album)
   erb :'albums/edit'
 end
 

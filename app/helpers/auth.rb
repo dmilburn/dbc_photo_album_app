@@ -13,3 +13,10 @@ def permission_check
     redirect '/login'
   end
 end
+
+def album_ownership_check(album)
+  if album.user_id != current_user.id
+    flash[:error] = "Sorry, you do not have permission to see that."
+    redirect '/albums'
+  end
+end
