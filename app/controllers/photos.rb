@@ -32,6 +32,7 @@ end
 get '/photos/:id' do |photo_id|
   permission_check
   @photo_object =  Photo.find(photo_id)
+  album_ownership_check(@photo_object.album)
   photo_binary = @photo_object.image
   @photo = Base64.encode64(photo_binary)
   erb :'photo/show'
@@ -41,6 +42,7 @@ end
 get '/photos/:id/edit' do |id|
   permission_check
   @photo = Photo.find(id)
+  album_ownership_check(@photo.album)
   @albums = Album.all
   erb :'photo/edit'
 end
