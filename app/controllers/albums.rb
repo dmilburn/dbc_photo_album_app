@@ -3,13 +3,23 @@ enable :sessions
 
 #show all
 get '/albums' do
-  @albums = Album.all
-  erb :'/albums/index'
+  if current_user
+    @albums = Album.all
+    erb :'/albums/index'
+  else
+    flash[:error] = "You do not have permission to see that. Please login."
+    redirect '/login'
+  end
 end
 
 #create album
 get '/albums/new' do
-  erb :'/albums/new'
+  if current_user
+    erb :'/albums/new'
+  else
+    flash[:error] = "You do not have permission to see that. Please login."
+    redirect '/login'
+  end
 end
 
 post '/albums' do
@@ -19,16 +29,26 @@ end
 
 #show one album
 get '/albums/:id' do |id|
-  @album = Album.find(id)
-  @photos = @album.photos
-  erb :'albums/show'
+  if current_user
+    @album = Album.find(id)
+    @photos = @album.photos
+    erb :'albums/show'
+  else
+    flash[:error] = "You do not have permission to see that. Please login."
+    redirect '/login'
+  end
 end
 
 #edit album
 
 get '/albums/:id/edit' do |id|
-  @album = Album.find(id)
-  erb :'albums/edit'
+  if current_user
+    @album = Album.find(id)
+    erb :'albums/edit'
+  else
+    flash[:error] = "You do not have permission to see that. Please login."
+    redirect '/login'
+  end
 end
 
 put '/albums/:id' do |id|
