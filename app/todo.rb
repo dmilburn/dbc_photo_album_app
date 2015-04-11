@@ -1,19 +1,21 @@
-# debbie
+###### debbie
 
 # validations for each page
 # flash messages
 
-# charles
+##### charles
 
-# cover photo for albums
 # photo/album layout
+# add a photo when you add an album
 
-# tucker
+
+###### tucker
 
 
 ##### User/album
 
 # multiple users
+
 #albums are not getting filtered by user
 
 
@@ -24,13 +26,7 @@
 
 #### Major functionality
 
-# send other users photos?
-
-
-
-# signin with linked in!
-
-# google search engine built in
+# upload a folder/multiple photos at a time!
 
 # filter by tags
 # add a photo by links
