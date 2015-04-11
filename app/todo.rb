@@ -1,8 +1,7 @@
 # album crud
-# need to add edit and DELETE functionality
-# need to add edit and DELETE views
 
 
+# photos aren't getting uploaded to right album
 
 # debbie
 

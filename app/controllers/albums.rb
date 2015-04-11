@@ -37,9 +37,14 @@ put '/albums/:id' do |id|
   redirect "#{album_url(album)}"
 end
 
+
 # delete an album
 delete '/albums/:id/delete' do |id|
   album = Album.find(id)
+  photos = album.photos
   album.destroy
+  photos.each do |photo|
+    photo.destroy
+  end
   redirect '/albums'
 end
