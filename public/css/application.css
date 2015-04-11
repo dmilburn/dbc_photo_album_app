@@ -49,7 +49,7 @@ a:hover, a:active{
 }
 
 img{
-    width:30%;
+    width:27%;
     margin: 20px;
 }
 
@@ -58,12 +58,24 @@ a {
     color: rgb(120,120,120);
 }
 
+.album-cover{
+    display:inline;
+}
+
+.album-cover a{
+    display:inline;
+}
+
 a:visited{
     text-decoration: none;
 }
 
 .title{
     margin: 0 auto;
+}
+
+img a {
+    display:inline;
 }
 
 

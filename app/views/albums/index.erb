@@ -1,7 +1,8 @@
-<h1> Albums <h1>
+<h1> Albums </h1>
 
 <%@albums.each do |album| %>
-	<%= album.name %>
+	<!-- <p><%= album.name %></p> -->
 	<!-- hacky and wrong. Refactor -->
-	<div class="Album-cover"><a href="<%=album_url(album)%>"> <img src="data:image/png;base64, <%=encode(Photo.find_by(album_id: album.id)) if !Photo.find_by(album_id: album.id).nil?%>"></a> </div>
+
+	<div class="album-cover"><a href="<%=album_url(album)%>"> <img src="data:image/png;base64, <%=encode(Photo.find_by(album_id: album.id)) if !Photo.find_by(album_id: album.id).nil?%>"></a> </div>
 <%end%>
