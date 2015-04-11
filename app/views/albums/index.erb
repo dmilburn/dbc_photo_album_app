@@ -1,5 +1,7 @@
 <h1> Albums <h1>
 
 <%@albums.each do |album| %>
-	<a href="<%=album_url(album)%>"> <%= album.name %></a>
+	<%= album.name %>
+	<!-- hacky and wrong. Refactor -->
+	<div class="Album-cover"><a href="<%=album_url(album)%>"> <img src="data:image/png;base64, <%=encode(Photo.find_by(album_id: album.id))%>"></a> </div>
 <%end%>
