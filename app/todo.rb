@@ -1,24 +1,27 @@
 # album crud
-
-
 # need to add edit and DELETE functionality
 # need to add edit and DELETE views
 
-#albums are not getting filtered by user!
 
 
-#photos crud
-
-
-
+# debbie
 
 # validations for each page
 # flash messages
+
+# charles
 
 # shiny but important
 # nav bar
 # photo layout
 # 
+
+
+
+# User/album
+
+#albums are not getting filtered by user
+
 
 
 ############### stretch goals
