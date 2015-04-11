@@ -5,6 +5,7 @@ enable :sessions
 get '/albums' do
   permission_check
   @albums = Album.all.where(user_id: current_user.id)
+  @photos = Photo.all
   erb :'/albums/index'
 end
 

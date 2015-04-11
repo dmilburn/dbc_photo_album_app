@@ -5,17 +5,16 @@
 
 # charles
 
+# cover photo for albums
 # photo/album layout
 
 # tucker
 
 
-
-
 ##### User/album
 
+# multiple users
 #albums are not getting filtered by user
-
 
 
 ############### stretch goals
@@ -25,14 +24,14 @@
 
 #### Major functionality
 
-
-# Photo shown as album cover
-# multiple album layout
+# send other users photos?
 
 
 
 # signin with linked in!
+
 # google search engine built in
+
 # filter by tags
 # add a photo by links
 # upload gifs
