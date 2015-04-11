@@ -1,21 +1,29 @@
-# debbie
+##### charles
 
-# validations for each page
-# flash messages
 
-# charles
-
+	
+	
+end
 # photo/album layout
+# how do I resize photos to crop them so they're all x by y
+# size?
 
-# tucker
 
 
+
+
+
+# require/be able to add a photo when you create an album
+
+
+###### tucker
 
 
 ##### User/album
 
-#albums are not getting filtered by user
+# multiple users
 
+#albums are not getting filtered by user
 
 
 ############### stretch goals
@@ -25,14 +33,8 @@
 
 #### Major functionality
 
+# upload a folder/multiple photos at a time!
 
-# Photo shown as album cover
-# multiple album layout
-
-
-
-# signin with linked in!
-# google search engine built in
 # filter by tags
 # add a photo by links
 # upload gifs
