@@ -1,29 +1,30 @@
-# album crud
-
-
-# need to add edit and DELETE functionality
-# need to add edit and DELETE views
-
-#albums are not getting filtered by user!
-
-
-#photos crud
-
-
-
+# debbie
 
 # validations for each page
 # flash messages
 
+# charles
+
 # shiny but important
 # nav bar
 # photo layout
-# 
+
+
+
+
+
+# User/album
+
+#albums are not getting filtered by user
+
 
 
 ############### stretch goals
 
 ####### UX
+
+# confirmation of deletion ("are you SURE you wanna delete that?")
+# deleting all photos in an album/ deleting by batch selection
 
 #gifs
 # add a photo by links
@@ -37,6 +38,8 @@
 
 
 ######## UI
+
+# delete button in nav bar for deleting THIS album/photo
 # implement SASS
 
 # filter by tags
