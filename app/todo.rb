@@ -28,6 +28,8 @@
 
 ####### UX
 
+# confirmation of deletion ("are you SURE you wanna delete that?")
+
 #gifs
 # add a photo by links
 

@@ -9,6 +9,11 @@
   <input type="submit" name="GET" value="Edit">
 </form>
 
+<form action="<%=album_url(@album)%>/delete" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete">
+</form>
+
 <% @photos.each do |photo| %>
 <a href="<%=photo_url(photo)%>" > <img alt="Embedded Image" src="data:image/png;base64,<%=encode(photo)%>"/></a>
 
