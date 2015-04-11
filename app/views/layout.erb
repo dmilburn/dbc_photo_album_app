@@ -22,13 +22,16 @@
       <!-- add partial for delete album if they're in an album/photo -->
       <p id ="home-button">FLICKGURBOX</p>
       <ul>
-        <li><a href="/">Sign in</a></li>
+        <%if current_user%>
         <li><a href="/logout">Sign out</a></li>
+        <%else%>
+        <li><a href="/login">Sign in</a></li>
+        <%end%>
         <li><a href="/photos/upload">Upload Photo</a></li>
         <li><a href="/albums/new">Create Album</a></li>
         <li><a href="/albums">My Albums</a></li>
-    </ul>
-  </nav>
+      </ul>
+    </nav>
     <div class ="container">
       <div class="entry-error"><%= flash[:error] if flash[:error] %></div>
       <%= yield %>
