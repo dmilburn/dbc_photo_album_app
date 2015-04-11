@@ -1,6 +1,10 @@
-<img alt="Embedded Image" src="data:image/png;base64,<%=@photo%>"/>
+<img alt="Embedded Image" src="data:image/png;base64,<%=@photo%>" width="600"/>
 
 <form action="/photos/<%=@photo_object.id%>" method="POST">
   <input type="hidden" name="_method" value="DELETE">
   <input type="submit" value="Delete">
+</form>
+
+<form action="/photos/<%=@photo_object.id%>/edit" method="GET">
+  <input type="submit" name="GET" value="Edit">
 </form>
