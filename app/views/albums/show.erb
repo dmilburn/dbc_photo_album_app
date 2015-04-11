@@ -3,8 +3,7 @@
 <!-- single album view -->
 <h1><%=@album.name%></h1>
 
-
 <% @photos.each do |photo| %>
-<img alt="Embedded Image" src="data:image/png;base64,<%=encode(photo)%>"/>
+<a href="<%=photo_url(photo)%>" > <img alt="Embedded Image" src="data:image/png;base64,<%=encode(photo)%>"/></a>
 
 <%end%>
