@@ -7,7 +7,7 @@ require 'haml'
 
 #Handle GET-request (Show the upload form)
 get "/photos/upload" do
-  @albums = Album.all.where(user_id: current_user.id)
+  @albums = Album.where(user_id: current_user.id)
   permission_check
   erb :'photo/upload'
 end
@@ -43,7 +43,7 @@ get '/photos/:id/edit' do |id|
   permission_check
   @photo = Photo.find(id)
   album_ownership_check(@photo.album)
-  @albums = Album.all.where(user_id: current_user.id)
+  @albums = Album.where(user_id: current_user.id)
   erb :'photo/edit'
 end
 
