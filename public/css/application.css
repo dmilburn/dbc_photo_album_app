@@ -12,6 +12,7 @@ nav{
     width: 100px;
     display:inline;
     line-height: 60px;
+    color: rgb(120,120,120);
 }
 
 nav ul{
@@ -40,7 +41,9 @@ a:hover, a:active{
 
 .container {
     margin: 80px auto;
-    width: 90%;
+    width: 80%;
+    min-width: 820px;
+    max-width: 980px;
     padding: 10px 20px 20px 20px;
     border: 2px solid black;
 }
@@ -58,6 +61,11 @@ a {
 a:visited{
     text-decoration: none;
 }
+
+.title{
+    margin: 0 auto;
+}
+
 
 /*nav{
     height: 70px;

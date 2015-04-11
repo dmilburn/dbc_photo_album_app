@@ -5,15 +5,14 @@
 
 # charles
 
-# shiny but important
-# nav bar
-# photo layout
+# photo/album layout
+
+# tucker
 
 
 
 
-
-# User/album
+##### User/album
 
 #albums are not getting filtered by user
 
@@ -23,26 +22,53 @@
 
 ####### UX
 
-# confirmation of deletion ("are you SURE you wanna delete that?")
-# deleting all photos in an album/ deleting by batch selection
 
-#gifs
-# add a photo by links
+#### Major functionality
 
+
+# Photo shown as album cover
+# multiple album layout
+
+
+
+# signin with linked in!
+# google search engine built in
 # filter by tags
-# comments
-# public albums / list of users to click and view albums
-# filter by all tags of all users
-# default public album
+# add a photo by links
+# upload gifs
+
+
+### Minor functionality
+
+# confirmation of deletion ("are you SURE you wanna delete that?")
+
+
+#### stretch
+# comments by other users
 # album tags 
+# default public album
+# filter by all tags of all users
+# public albums / list of users to click and view albums
+# deleting all photos in an album without deleting an album
+# deleting by batch selection
 
 
 ######## UI
 
+#### Major visual additions
+
+# filter by tags search
+# ajax carosel/pretty UI
+
+# stretch
+
 # delete button in nav bar for deleting THIS album/photo
 # implement SASS
 
-# filter by tags
-# ajax carosel/pretty UI
-# cursor style
-# highlighting images (shadow border)
+
+##minor things
+
+# nav bar hover style
+
+
+
