@@ -1,7 +1,8 @@
 # album crud
 
-
 # photos aren't getting uploaded to right album
+
+
 
 # debbie
 
@@ -28,6 +29,7 @@
 ####### UX
 
 # confirmation of deletion ("are you SURE you wanna delete that?")
+# deleting all photos in an album/ deleting by batch selection
 
 #gifs
 # add a photo by links
