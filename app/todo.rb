@@ -1,12 +1,19 @@
-###### debbie
-
-# validations for each page
-# flash messages
-
 ##### charles
 
+
+	
+	
+end
 # photo/album layout
-# add a photo when you add an album
+# how do I resize photos to crop them so they're all x by y
+# size?
+
+
+
+
+
+
+# require/be able to add a photo when you create an album
 
 
 ###### tucker
