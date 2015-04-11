@@ -7,17 +7,19 @@ require 'haml'
 
 #Handle GET-request (Show the upload form)
 get "/photos/upload" do
-  haml :'photo/upload'
+  @albums = Album.all
+  erb :'photo/upload'
 end
 
 #Handle POST-request (Receive and save the uploaded file)
 post "/photos/upload" do
   upload_pic = File.open(params['upload_photo'][:tempfile], "rb").read
+  photo_album = Album.find_by(name: params['album_name'])
   new_photo = Photo.create(image: upload_pic,
                           name: params[:photo_name],
                           description: params[:description],
                           location: params[:location],
-                          album_id: 1)
+                          album_id: photo_album.id)
   redirect photo_url(new_photo)
 end
 
