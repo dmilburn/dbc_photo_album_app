@@ -8,6 +8,10 @@
       <TEXTAREA ROWS="10" COLS="50" name="photo[description]" ><%= @photo.description %></TEXTAREA>
     </p>
     <p>Last Updated: <%= updated_time(@photo) %></p>
+      <select name="photo.album_id">
+        <% @albums.each do |album| %>
+            <option value="@album_name"><%=album.name%></option>
+        <% end %>
+      </select>
   <input type="submit" value="Submit">
 </form>
-

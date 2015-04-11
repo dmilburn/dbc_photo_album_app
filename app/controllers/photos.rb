@@ -36,14 +36,15 @@ end
 #edit photo
 get '/photos/:id/edit' do |id|
   @photo = Photo.find(id)
+  @albums = Album.all
   erb :'photo/edit'
 end
 
 put '/photos/:id/edit' do |id|
   photo = Photo.find(id)
+  album = Album.find_by(name: @album_name)
   photo.update(params[:photo])
-  puts params[:photo]
-  redirect photo_url(photo)
+  redirect "/photos/#{photo.id}"
 end
 
 #delete a photo
