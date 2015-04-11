@@ -2,7 +2,11 @@ enable :sessions
 
 
 get '/' do
-  redirect '/login'
+  if current_user
+    redirect '/albums'
+  else
+    redirect '/login'
+  end
 end
 
 get '/login' do
