@@ -16,7 +16,12 @@ end
 
 post '/albums' do
   album = Album.create(params[:album])
-  redirect "#{album_url(album)}"
+  if album.valid?
+    redirect "#{album_url(album)}"
+  else
+    flash[:error] = "Album could not save without a title. Please try again."
+    redirect "/albums/new"
+  end
 end
 
 #show one album
@@ -37,8 +42,13 @@ end
 
 put '/albums/:id' do |id|
   album = Album.find(id)
-  album.update(params[:album])
-  redirect "#{album_url(album)}"
+  begin
+  album.update!(params[:album])
+  rescue
+    flash[:error] = "Album update didn't save. Please try again."
+    redirect album_url(album)+"/edit"
+  end
+  redirect album_url(album)
 end
 
 
