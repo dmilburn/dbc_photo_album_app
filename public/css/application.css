@@ -7,7 +7,16 @@ nav{
     height: 60px;
 }
 
+#home-button{
+    padding-left: 20px;
+    width: 100px;
+    display:inline;
+    line-height: 60px;
+}
+
 nav ul{
+    float: right;
+    display:inline-block;
     list-style-type: none;
     margin: 0;
     padding-right: 40px;
