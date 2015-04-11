@@ -7,12 +7,8 @@ require 'haml'
 
 #Handle GET-request (Show the upload form)
 get "/photos/upload" do
-  if current_user
-    haml :'photo/upload'
-  else
-    flash[:error] = "You do not have permission to see that. Please login."
-    redirect '/login'
-  end
+  permission_check
+  haml :'photo/upload'
 end
 
 #Handle POST-request (Receive and save the uploaded file)
@@ -27,27 +23,19 @@ post "/photos/upload" do
 end
 
 get '/photos/:id' do |photo_id|
-  if current_user
-    @photo_object =  Photo.find(photo_id)
-    photo_binary = @photo_object.image
-    @photo = Base64.encode64(photo_binary)
-    erb :'photo/show'
-  else
-    flash[:error] = "You do not have permission to see that. Please login."
-    redirect '/login'
-  end
+  permission_check
+  @photo_object =  Photo.find(photo_id)
+  photo_binary = @photo_object.image
+  @photo = Base64.encode64(photo_binary)
+  erb :'photo/show'
 end
 
 #edit photo
 get '/photos/:id/edit' do |id|
-  if current_user
-    @photo = Photo.find(id)
-    @albums = Album.all
-    erb :'photo/edit'
-  else
-    flash[:error] = "You do not have permission to see that. Please login."
-    redirect '/login'
-  end
+  permission_check
+  @photo = Photo.find(id)
+  @albums = Album.all
+  erb :'photo/edit'
 end
 
 put '/photos/:id/edit' do |id|
