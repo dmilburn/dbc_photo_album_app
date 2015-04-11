@@ -1,0 +1,9 @@
+<form method="POST" action="/albums">
+
+  <label>Title</label><br>
+  <input type="text" name="album[name]"><br>
+  <label>Body</label><br>
+  <textarea class ="body-area" name="album[description]"></textarea><br>
+  <input type="hidden" name="album[user_id]" value = 1 >
+  <input type="submit"><%=flash[:notice]%>
+</form>
