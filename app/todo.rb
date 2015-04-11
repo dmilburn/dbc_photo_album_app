@@ -14,6 +14,7 @@
 
 ##### User/album
 
+# multiple users
 #albums are not getting filtered by user
 
 
@@ -28,6 +29,7 @@
 
 # Photo shown as album cover
 # multiple album layout
+# send other users photos
 
 
 
