@@ -16,7 +16,7 @@ end
 
 post '/albums' do
   album = Album.create(params[:album])
-  redirect album_url(album)
+  redirect "#{album_url(album)}"
 end
 
 #show one album
