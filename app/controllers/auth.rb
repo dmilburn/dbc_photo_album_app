@@ -21,9 +21,14 @@ post '/login' do
 end
 
 get '/signup' do
-
+  erb :'auth/signup'
 end
 
+post '/signup' do
+  user = User.create(params[:user])
+  session[:user_id] = user.id
+  redirect '/albums'
+end
 
 get '/logout' do
   session[:user_id] = nil
