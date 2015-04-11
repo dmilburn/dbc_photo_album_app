@@ -3,12 +3,14 @@ enable :sessions
 
 #show all
 get '/albums' do
+  permission_check
   @albums = Album.all
   erb :'/albums/index'
 end
 
 #create album
 get '/albums/new' do
+  permission_check
   erb :'/albums/new'
 end
 
@@ -19,6 +21,7 @@ end
 
 #show one album
 get '/albums/:id' do |id|
+  permission_check
   @album = Album.find(id)
   @photos = @album.photos
   erb :'albums/show'
@@ -27,6 +30,7 @@ end
 #edit album
 
 get '/albums/:id/edit' do |id|
+  permission_check
   @album = Album.find(id)
   erb :'albums/edit'
 end
