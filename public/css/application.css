@@ -1,4 +1,73 @@
+body{
+    margin: 0;
+}
+
 nav{
+    background-color: rgba(230,230,230, .8);
+    height: 60px;
+}
+
+#home-button{
+    padding-left: 20px;
+    width: 100px;
+    display:inline;
+    line-height: 60px;
+    color: rgb(120,120,120);
+}
+
+nav ul{
+    float: right;
+    display:inline-block;
+    list-style-type: none;
+    margin: 0;
+    padding-right: 40px;
+    overflow: hidden;
+}
+
+li {
+    float: right;
+    padding: 20px 0 20px 0;
+}
+
+a:link, a:visited {
+    display:block;
+    padding: 5px;
+    text-decoration: none;
+}
+
+a:hover, a:active{
+    background-color: rgb(240,240,240);
+}
+
+.container {
+    margin: 80px auto;
+    width: 80%;
+    min-width: 820px;
+    max-width: 980px;
+    padding: 10px 20px 20px 20px;
+    border: 2px solid black;
+}
+
+img{
+    width:30%;
+    margin: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: rgb(120,120,120);
+}
+
+a:visited{
+    text-decoration: none;
+}
+
+.title{
+    margin: 0 auto;
+}
+
+
+/*nav{
     height: 70px;
     background-color: rgb(240,240,240);
     background-image: gray;
@@ -12,12 +81,7 @@ body{
     color: rgb(205,205,205);
 }
 
-.container {
-    margin: 80px auto;
-    width: 90%;
-    padding: 10px 20px 20px 20px;
-    border: 2px solid black;
-}
+
 
 th {
     text-align: left;
@@ -47,4 +111,4 @@ text-decoration: none;
 
 a:visited{
     text-decoration: none;
-}
+}*/

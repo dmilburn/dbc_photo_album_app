@@ -1,0 +1,21 @@
+<!-- show a single album with it's photos -->
+
+<!-- single album view -->
+<h1 class ="title"><%=@album.name%></h1>
+
+<!-- button for editing -->
+
+<form action="<%=album_url(@album)%>/edit" method="GET">
+  <input type="submit" name="GET" value="Edit">
+</form>
+
+
+<form action="<%=album_url(@album)%>/delete" method="POST">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete">
+</form>
+
+<% @photos.each do |photo| %>
+<a href="<%=photo_url(photo)%>" > <img alt="Embedded Image" src="data:image/png;base64,<%=encode(photo)%>"/></a>
+
+<%end%>

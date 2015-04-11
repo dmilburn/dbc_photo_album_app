@@ -1,0 +1,10 @@
+<form method="POST" action="<%=album_url(@album)%>">
+	<input type ="hidden" name="_method" value="PUT">
+  <label>Title</label><br>
+  <input type="text" name="album[name]" value="<%=@album.name%>"><br>
+  <label>Body</label><br>
+  <textarea class ="body-area" name="album[description]" value="<%=@album.description%>"></textarea><br>
+  <!-- refactor and fix hardcoded value -->
+  <input type="hidden" name="album[user_id]" value = 1 >
+  <input type="submit"><%=flash[:notice]%>
+</form>

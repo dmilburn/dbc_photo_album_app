@@ -1,0 +1,5 @@
+<!-- _show_albums -->
+
+<% @albums.each do |album|%> 
+	<%= erb :'albums/_show_album', locals: {album: album} %>
+<%end%>

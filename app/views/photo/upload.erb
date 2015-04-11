@@ -1,12 +1,18 @@
-<!-- %html
-  %body
-    %h1 File uploader!
-    %form(method="post" enctype='multipart/form-data')
-      %input(type='file' name='myfile')
-      %br
-      %input(type='submit' value='Upload!')
- -->
-
-
+<html>
+  <body>
+  <form action="/photos/upload" method = "POST" enctype='multipart/form-data'>
+  <h2>Upload a Photo</h2>
+    <input type="text" name="photo_name" placeholder="Name your photo!"/><br><br>
+    <input type="text" name="location" placeholder="Where was it taken?"/><br><br>
+    <input type="text" name="Description" rows="5" placeholder="Care to add a description?"/><br><br>
+    <select name="album_name">
+        <% @albums.each do |album| %>
+            <option><%=album.name%> </option>
+        <% end %>
+    </select><br><br>
+    <%= haml :'/photo/photo_upload' %><br><br>
+  </form>
+  </body>
+</html>
 
 

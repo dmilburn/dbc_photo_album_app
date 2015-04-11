@@ -18,19 +18,24 @@
     <title></title>
   </head>
   <body>
-    <div id="content">
-      <header>
-        <div id="login-toolbar">
-          <% if current_user %>
-          <a href="/logout">Logout</a>
-          <% else %>
-          <a href="/login">Login</a>
-          <% end %>
-        </div>
-      </header>
-      <div class ="container">
-        <%= yield %>
-      </div>
-    </body>
-  </html>
-
+    <nav>
+      <!-- add partial for delete album if they're in an album/photo -->
+      <p id ="home-button">FLICKGURBOX</p>
+      <ul>
+        <%if current_user%>
+        <li><a href="/logout">Sign out</a></li>
+        <%else%>
+        <li><a href="/signup">Sign Up</a></li>
+        <li><a href="/login">Sign in</a></li>
+        <%end%>
+        <li><a href="/photos/upload">Upload Photo</a></li>
+        <li><a href="/albums/new">Create Album</a></li>
+        <li><a href="/albums">My Albums</a></li>
+      </ul>
+    </nav>
+    <div class ="container">
+      <div class="entry-error"><%= flash[:error] if flash[:error] %></div>
+      <%= yield %>
+    </div>
+  </body>
+</html>
