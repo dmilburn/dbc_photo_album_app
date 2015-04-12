@@ -7,16 +7,22 @@ def current_user
 end
 
 
-def permission_check(album)
-  if !album.public && (!current_user || album.user_id != current_user.id)
+def privacy_guard(album)
+  if !album.public && not_album_owner?(album)
     flash[:error] = "Sorry, you do not have permission to see that."
     redirect '/'
   end
 end
 
-def album_ownership_check(album)
-  if !current_user || album.user_id != current_user.id
+def album_ownership_guard(album)
+  if not_album_owner?(album)
     flash[:error] = "Sorry, you do not have permission to see that."
     redirect '/'
   end
 end
+
+
+def not_album_owner?(album)
+  !current_user || album.user_id != current_user.id
+end
+

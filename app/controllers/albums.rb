@@ -1,7 +1,7 @@
 #albums routes
 enable :sessions
 
-#show all
+#show all of a user's albums
 get '/users/:id/albums' do |id|
   if !current_user || id != current_user.id.to_s
     @albums = Album.where(user_id: id, public: true)
@@ -37,7 +37,7 @@ end
 #show one album
 get '/albums/:id' do |id|
   @album = Album.find(id)
-  permission_check(@album)
+  privacy_guard(@album)
   @photos = @album.photos
   erb :'albums/show'
 end
@@ -46,8 +46,8 @@ end
 
 get '/albums/:id/edit' do |id|
   @album = Album.find(id)
-  permission_check(@album)
-  album_ownership_check(@album)
+  privacy_guard(@album)
+  album_ownership_guard(@album)
   erb :'albums/edit'
 end
 
