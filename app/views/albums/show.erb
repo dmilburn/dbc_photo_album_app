@@ -3,7 +3,7 @@
 <h1 class ="title"><%=@album.name%></h1>
 
 <!-- button for editing -->
-
+<%if album_owner?(@album) %>
 <form action="<%=album_url(@album)%>/edit" method="GET">
 <input type="submit" name="GET" value="Edit">
 </form>
@@ -13,6 +13,7 @@
   <input type="hidden" name="_method" value="DELETE">
   <input type="submit" value="Delete">
 </form>
+<% end %>
 
 
 
@@ -24,7 +25,4 @@
 	</div>
 </div>
 <%end%>
-
-
-
 

@@ -1,18 +1,26 @@
 #albums routes
 enable :sessions
 
-#show all
-get '/albums' do
-  permission_check
-  @albums = Album.where(user_id: current_user.id)
+#show all of a user's albums
+get '/users/:id/albums' do |id|
+  if !current_user || id != current_user.id.to_s
+    @albums = Album.where(user_id: id, public: true)
+  else
+    @albums = Album.where(user_id: id)
+  end
   @photos = Photo.all
   erb :'/albums/index'
 end
 
+
 #create album
 get '/albums/new' do
-  permission_check
-  erb :'/albums/new'
+  if current_user
+    erb :'/albums/new'
+  else
+    flash[:error] = "Please create an account to make a new album."
+    redirect '/signup'
+  end
 end
 
 post '/albums' do
@@ -27,9 +35,8 @@ end
 
 #show one album
 get '/albums/:id' do |id|
-  permission_check
   @album = Album.find(id)
-  album_ownership_check(@album)
+  privacy_guard(@album)
   @photos = @album.photos
   erb :'albums/show'
 end
@@ -37,9 +44,8 @@ end
 #edit album
 
 get '/albums/:id/edit' do |id|
-  permission_check
   @album = Album.find(id)
-  album_ownership_check(@album)
+  privacy_guard(@album)
   erb :'albums/edit'
 end
 
