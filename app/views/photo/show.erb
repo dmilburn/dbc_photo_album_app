@@ -1,4 +1,7 @@
-<img alt="Embedded Image" src="data:image/png;base64,<%=@photo%>" width="600"/>
+<div class= "wrapper">
+<div class= "single-photo">
+<img alt="Embedded Image" src="data:image/png;base64,<%=@photo%>" width="600"/></div>
+</div>
 
 <form action="/photos/<%=@photo_object.id%>" method="POST">
   <input type="hidden" name="_method" value="DELETE">
