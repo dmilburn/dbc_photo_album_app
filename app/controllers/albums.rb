@@ -2,9 +2,13 @@
 enable :sessions
 
 #show all
-get '/albums' do
-  permission_check
-  @albums = Album.where(user_id: current_user.id)
+get '/users/:id/albums' do |id|
+  if !current_user || id != current_user.id.to_s
+    @albums = Album.where(user_id: id, public: true)
+  else
+    @albums = Album.where(user_id: id)
+  end
+  # permission_check
   @photos = Photo.all
   erb :'/albums/index'
 end

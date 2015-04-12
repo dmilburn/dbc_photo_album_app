@@ -11,7 +11,7 @@ end
 
 get '/login' do
   if current_user
-    redirect '/albums'
+    redirect '/users/#{current_user.id}/albums'
   else
     erb :'auth/login'
   end
@@ -21,7 +21,7 @@ post '/login' do
   user = User.find_by(name: params[:name])
   if user && user.authenticate(params[:password])
     session[:user_id] = user.id
-    redirect '/albums'
+    redirect '/users/#{current_user.id}/albums'
   else
     flash[:error] = "Could not find your account. Please try again."
     redirect '/login'
@@ -47,7 +47,7 @@ post '/signup' do
   else
     user.save
     session[:user_id] = user.id
-    redirect '/albums'
+    redirect '/users/#{current_user.id}/albums'
   end
   redirect '/signup'
 end
