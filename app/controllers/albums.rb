@@ -3,7 +3,6 @@ enable :sessions
 
 get '/' do
   albums = Album.where(public: true)
-  # albums = Album.find(1)
   @photos = []
   albums.each do |album|
     album.photos.each do |photo|
