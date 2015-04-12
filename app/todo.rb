@@ -1,14 +1,22 @@
 ##### charles
 
-
+=begin
 	
+	Nav bar
+
+	change font, font size, font color
+
+	spacing, choice of links
 	
-end
-# photo/album layout
-# how do I resize photos to crop them so they're all x by y
-# size?
 
 
+
+photo/album layout
+
+how do I resize photos to crop them so they're all x by y
+size?
+
+=end
 
 
 

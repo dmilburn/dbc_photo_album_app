@@ -60,3 +60,46 @@ $(document).ready(function() {
       dialog.dialog( "open" );
     });
   });
+
+// hover over nav divs
+  $(function(){
+    //display the hover div
+    $("div.hoverBtn").show("fast", function() {
+      //append the background div
+      $(this).append("<div></div>");
+    });
+  });
+
+  var hoverColour = "#FFF";
+  //when the dom has loaded
+  $(function(){
+    //display the hover div
+    $("div.hoverBtn").show("fast", function() {
+      //append the background div
+      $(this).append("<div></div>");
+      //on link hover
+      $(this).children("a").hover(function(){
+        //store initial link colour
+        if ($(this).attr("rel") == "") {
+          $(this).attr("rel", $(this).css("color"));
+        }
+        //fade in the background
+        $(this).parent().children("div")
+          .stop()
+          .css({"display": "none", "opacity": "1"})
+          .fadeIn("fast");
+        //fade the colour
+        $(this).stop()
+          .css({"color": $(this).attr("rel")})
+          .animate({"color": hoverColour}, 350);
+      },function(){
+        //fade out the background
+        $(this).parent().children("div")
+          .stop()
+          .fadeOut("slow");
+        //fade the colour
+        $(this).stop()
+          .animate({"color": $(this).attr("rel")}, 250);
+      });
+    });
+  });
