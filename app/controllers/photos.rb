@@ -45,7 +45,6 @@ end
 get '/photos/:id/edit' do |id|
   @photo = Photo.find(id)
   privacy_guard(@photo.album)
-  album_ownership_guard(@photo.album)
   @albums = Album.where(user_id: current_user.id)
   erb :'photo/edit'
 end

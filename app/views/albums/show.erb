@@ -4,7 +4,7 @@
 <h1 class ="title"><%=@album.name%></h1>
 
 <!-- button for editing -->
-<%if !not_album_owner?(@album) %>
+<%if album_owner?(@album) %>
 <form action="<%=album_url(@album)%>/edit" method="GET">
 <input type="submit" name="GET" value="Edit">
 </form>

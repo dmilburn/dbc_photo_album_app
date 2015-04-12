@@ -47,7 +47,6 @@ end
 get '/albums/:id/edit' do |id|
   @album = Album.find(id)
   privacy_guard(@album)
-  album_ownership_guard(@album)
   erb :'albums/edit'
 end
 
