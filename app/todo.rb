@@ -2,23 +2,14 @@
 
 =begin
 	
-	Nav bar
-
-	change font, font size, font color
-
-	spacing, choice of links
-	
-
-
 
 photo/album layout
+ajax refresh. All photos in album show when you click an album.
+ajax refresh. Filter by tags shows all photos that have that tag.
 
-how do I resize photos to crop them so they're all x by y
-size?
+
 
 =end
-
-
 
 
 # require/be able to add a photo when you create an album
@@ -26,12 +17,6 @@ size?
 
 ###### tucker
 
-
-##### User/album
-
-# multiple users
-
-#albums are not getting filtered by user
 
 
 ############### stretch goals
@@ -55,7 +40,6 @@ size?
 
 #### stretch
 # comments by other users
-# album tags 
 # default public album
 # filter by all tags of all users
 # public albums / list of users to click and view albums
