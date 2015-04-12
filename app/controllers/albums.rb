@@ -13,7 +13,6 @@ get '/users/:id/albums' do |id|
 end
 
 
-
 #create album
 get '/albums/new' do
   if current_user
