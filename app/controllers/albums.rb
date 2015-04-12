@@ -31,6 +31,14 @@ post '/albums' do
     flash[:error] = "Album could not save without a title. Please try again."
     redirect "/albums/new"
   end
+
+  # if request.xhr?
+  #   @album = album
+  #   erb :'albums/show'
+  # else
+  #     redirect album_url(album)
+  # end
+
 end
 
 #show one album
@@ -52,7 +60,7 @@ end
 put '/albums/:id' do |id|
   album = Album.find(id)
   begin
-  album.update!(params[:album])
+    album.update!(params[:album])
   rescue
     flash[:error] = "Album update didn't save. Please try again."
     redirect album_url(album) + "/edit"

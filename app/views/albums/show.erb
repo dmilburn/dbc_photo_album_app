@@ -15,9 +15,7 @@
 </form>
 <% end %>
 
-
-
-<% @photos.each do |photo| %>
+<%@photos.each do |photo| %>
 <div class="box">
 	<div class = "boxInner"> <img class ="cover" src="data:image/png;base64,<%=encode(photo)%>"/>
 
