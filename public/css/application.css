@@ -1,7 +1,6 @@
 body{
     margin: 0;
     background-color: rgb(232,232,232);
-
 }
 
 nav{
@@ -9,24 +8,27 @@ nav{
     background-color: rgba(4,40,71,.8);
     height: 45px;
     color: white;
-    font-size: 1.1em;
-    font-family: Helvetica;
+    font-size: 1.3em;
+    font-family: Vollkorn;
+    font-weight: bold;
 }
 
 #home-button{
-    padding-left: 20px;
+    float: left;
+    padding-left: 40px;
     width: 100px;
     display: inline;
-    line-height: 50px;
     font-size: inherit;
+    border-right: none;
 }
 
 nav ul{
+    width:100%;
+    vertical-align: middle;
     float: right;
-    display:inline-block;
     list-style-type: none;
     margin: 0;
-    padding-right: 40px;
+    padding-right: 20px;
     overflow: hidden;
 
     color: inherit;
@@ -36,6 +38,11 @@ nav ul li {
     float: right;
     padding: 20px 6px 20px 6px;
     border-right: 1px solid rgba(255,255,255, .1);
+}
+
+/*creates left side border on "upload photo*/
+nav ul li:nth-child(4) {
+    border-left: 1px solid rgba(255,255,255, .1);
 }
 
 a:link, a:visited {
