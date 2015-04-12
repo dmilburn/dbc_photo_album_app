@@ -9,7 +9,7 @@ nav{
     height: 45px;
     color: white;
     font-size: 1.3em;
-    font-family: Vollkorn;
+    font-family: 'Alegreya';
     font-weight: bold;
 }
 
@@ -50,10 +50,10 @@ a:link, a:visited {
     text-decoration: none;
     color: inherit;
 }
-
+/*
 a:hover, a:active{
     background-color: #517fa4;
-}
+}*/
 
 .container {
     margin: 80px auto;
@@ -69,7 +69,15 @@ img{
     margin: 20px;
 }
 
+img a {
+    display:inline;
+}
+
 a {
+    text-decoration: none;
+}
+
+a:visited{
     text-decoration: none;
 }
 
@@ -80,62 +88,3 @@ a {
 .album-cover a{
     display:inline;
 }
-
-a:visited{
-    text-decoration: none;
-}
-
-.title{
-    margin: 0 auto;
-}
-
-img a {
-    display:inline;
-}
-
-
-/*nav{
-    height: 70px;
-    background-color: rgb(240,240,240);
-    background-image: gray;
-}
-
-body{
-    margin: 0 auto;
-    font-family: 'Alegreya';
-    font-size: 1.6em;
-    background-color: rgb(240,240,240);
-    color: rgb(205,205,205);
-}
-
-
-
-th {
-    text-align: left;
-}
-
-.inline{
-    
-}
-
-
-.body-area{
-    height: 200px;
-    width: 50%;
-}
-
-.form{
-        font-family: 'Alegreya';
-
-    width:50%;
-    height:80%;
-}
-
-a {
-    color:rgb(205,205,205);
-text-decoration: none;  
-}
-
-a:visited{
-    text-decoration: none;
-}*/
