@@ -7,7 +7,6 @@ def current_user
 end
 
 
-
 def permission_check(album)
   if !album.public && (!current_user || album.user_id != current_user.id)
     flash[:error] = "Sorry, you do not have permission to see that."

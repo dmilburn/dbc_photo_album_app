@@ -3,8 +3,9 @@
 	<input type="text" name="album[name]"><br>
 	<label>Body</label><br>
 	<textarea rows = "10" cols= "30" class ="body-area" name="album[description]"></textarea><br>
-  <label>Make this album public:</label>
-  <input type = "checkbox" name = "album[public]" value = "true"><br>
+  <label>Make this album:</label><br>
+  Public<input type = "radio" name = "album[public]" value = "true" checked >
+  Private<input type = "radio" name = "album[public]" value = "false" >
 	<input type="hidden" name="album[user_id]" value = "<%=current_user.id%>" >
 	<input type="submit"><%=flash[:notice]%>
 </form>

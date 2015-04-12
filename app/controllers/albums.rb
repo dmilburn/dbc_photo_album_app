@@ -38,7 +38,6 @@ end
 get '/albums/:id' do |id|
   @album = Album.find(id)
   permission_check(@album)
-  album_ownership_check(@album)
   @photos = @album.photos
   erb :'albums/show'
 end
