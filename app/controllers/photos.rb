@@ -53,7 +53,7 @@ put '/photos/:id/edit' do |id|
     photo = Photo.find(id)
     album = Album.find_by(name: @album_name)
     photo.update(params[:photo])
-    redirect photo_url(photo)
+    redirect album_url(photo.album)
 end
 
 #delete a photo
