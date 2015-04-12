@@ -77,5 +77,5 @@ delete '/albums/:id/delete' do |id|
   photos.each do |photo|
     photo.destroy
   end
-  redirect '/albums'
+  redirect '/'
 end

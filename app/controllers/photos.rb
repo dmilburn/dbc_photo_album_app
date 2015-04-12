@@ -30,7 +30,7 @@ post "/photos/upload" do
     flash[:error] = "Photo could not save. Please try again."
     redirect 'photos/upload'
   end
-  redirect photo_url(new_photo)
+  redirect album_url(new_photo.album)
 end
 
 get '/photos/:id' do |photo_id|
