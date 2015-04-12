@@ -1,9 +1,6 @@
 enable :sessions
 
 
-get '/' do
-  erb :'index'
-end
 
 get '/login' do
   if current_user
