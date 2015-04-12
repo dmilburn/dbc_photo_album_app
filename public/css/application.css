@@ -51,18 +51,10 @@ nav ul li:nth-child(4) {
     border-left: 1px solid rgba(255,255,255, .1);
 }
 
-
-
 .container {
-
     overflow:hidden;
-    margin: 0 auto;
-    width: 100%;
-/*    min-width: 820px;
-    max-width: 980px;
-*/
-/*    border: 2px solid black;
-*/}
+    margin:10px;
+}
 
 .box {
     float: left;
@@ -72,17 +64,16 @@ nav ul li:nth-child(4) {
     /*background-color: red;*/
 }
 
-.innerBox{
-    border: 1px solid black;
+.boxInner{
     position: absolute;
+    bottom: 10px;
     left: 10px;
     right:10px;
     top: 10px;
-    bottom: 10px;
     overflow: hidden;
 }
 
-.innerBox img{
+.boxInner img{
     width: 100%;
 }
 
@@ -102,6 +93,7 @@ nav ul li:nth-child(4) {
    -o-transition: all 0.3s ease-out;
    transition: all 0.3s ease-out;
 }
+
 body.no-touch .boxInner:hover .titleBox, body.touch .boxInner.touchFocus .titleBox {
    margin-bottom: 0;
 }
@@ -132,7 +124,6 @@ img.cover{
       padding-bottom: 100%;
    }
 }
-
 @media only screen and (max-width : 650px) and (min-width : 481px) {
    /* Tablet view: 2 tiles */
    .box {
@@ -140,7 +131,6 @@ img.cover{
       padding-bottom: 50%;
    }
 }
-
 @media only screen and (max-width : 1050px) and (min-width : 651px) {
    /* Small desktop / ipad view: 3 tiles */
    .box {
@@ -148,7 +138,6 @@ img.cover{
       padding-bottom: 33.3%;
    }
 }
-
 @media only screen and (max-width : 1290px) and (min-width : 1051px) {
    /* Medium desktop: 4 tiles */
    .box {
