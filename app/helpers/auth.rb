@@ -7,6 +7,8 @@ def current_user
 end
 
 
+
+
 def permission_check
   if !current_user
     flash[:error] = "You do not have permission to see that. Please login."

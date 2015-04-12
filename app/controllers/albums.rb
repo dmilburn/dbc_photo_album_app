@@ -9,6 +9,8 @@ get '/albums' do
   erb :'/albums/index'
 end
 
+
+
 #create album
 get '/albums/new' do
   permission_check
