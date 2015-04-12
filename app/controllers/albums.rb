@@ -25,19 +25,19 @@ end
 
 post '/albums' do
   album = Album.create(params[:album])
-  # if album.valid?
-  #   redirect album_url(album)
-  # else
-  #   flash[:error] = "Album could not save without a title. Please try again."
-  #   redirect "/albums/new"
-  # end
-
-  if request.xhr?
-    @album = album
-    erb :'albums/show'
+  if album.valid?
+    redirect album_url(album)
   else
-      redirect album_url(album)
+    flash[:error] = "Album could not save without a title. Please try again."
+    redirect "/albums/new"
   end
+
+  # if request.xhr?
+  #   @album = album
+  #   erb :'albums/show'
+  # else
+  #     redirect album_url(album)
+  # end
 
 end
 
