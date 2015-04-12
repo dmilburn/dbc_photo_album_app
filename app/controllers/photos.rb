@@ -7,9 +7,13 @@ require 'haml'
 
 #Handle GET-request (Show the upload form)
 get "/photos/upload" do
-  @albums = Album.where(user_id: current_user.id)
-  permission_check
-  erb :'photo/upload'
+  if current_user
+    @albums = Album.where(user_id: current_user.id)
+    erb :'photo/upload'
+  else
+    flash[:error] = "Please create an account to upload a photo."
+    redirect '/signup'
+  end
 end
 
 #Handle POST-request (Receive and save the uploaded file)
@@ -30,9 +34,8 @@ post "/photos/upload" do
 end
 
 get '/photos/:id' do |photo_id|
-  permission_check
   @photo_object =  Photo.find(photo_id)
-  album_ownership_check(@photo_object.album)
+  permission_check(@photo_object.album)
   photo_binary = @photo_object.image
   @photo = Base64.encode64(photo_binary)
   erb :'photo/show'
@@ -40,8 +43,8 @@ end
 
 #edit photo
 get '/photos/:id/edit' do |id|
-  permission_check
   @photo = Photo.find(id)
+  permission_check(@photo.album)
   album_ownership_check(@photo.album)
   @albums = Album.where(user_id: current_user.id)
   erb :'photo/edit'
