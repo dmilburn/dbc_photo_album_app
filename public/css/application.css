@@ -9,7 +9,8 @@ nav{
     background-color: rgba(4,40,71,.8);
     height: 45px;
     color: white;
-
+    font-size: 1.1em;
+    font-family: Helvetica;
 }
 
 #home-button{
@@ -17,6 +18,7 @@ nav{
     width: 100px;
     display: inline;
     line-height: 50px;
+    font-size: inherit;
 }
 
 nav ul{
@@ -26,8 +28,7 @@ nav ul{
     margin: 0;
     padding-right: 40px;
     overflow: hidden;
-    font-size: 1.3em;
-    font-family: Helvetica;
+
     color: inherit;
 }
 

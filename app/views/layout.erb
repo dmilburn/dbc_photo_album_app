@@ -24,13 +24,15 @@
       <ul>
         <%if current_user%>
         <li><a href="/logout">Sign out</a></li>
+        <li><a href="/albums/new">Create Album</a></li>
+        <li><a href="/albums">My Albums</a></li>
+           <%= erb :'_uploadpopup' %>
         <%else%>
         <li><a href="/signup">Sign Up</a></li>
         <li><a href="/login">Sign in</a></li>
         <%end%>
-        <%= erb :'_uploadpopup' %>
-        <li><a href="/albums/new">Create Album</a></li>
-        <li><a href="/albums">My Albums</a></li>
+     
+        
       </ul>
     </nav>
     <div class ="container">
