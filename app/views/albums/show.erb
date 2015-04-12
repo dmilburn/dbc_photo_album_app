@@ -1,6 +1,5 @@
 <!-- show a single album with it's photos -->
 
-<!-- single album view -->
 <h1 class ="title"><%=@album.name%></h1>
 
 <!-- button for editing -->
@@ -16,7 +15,14 @@
 </form>
 <% end %>
 
-<% @photos.each do |photo| %>
-<a href="<%=photo_url(photo)%>" > <img alt="Embedded Image" src="data:image/png;base64,<%=encode(photo)%>"/></a>
 
+
+<% @photos.each do |photo| %>
+<div class="box">
+	<div class = "boxInner"> <img class ="cover" src="data:image/png;base64,<%=encode(photo)%>"/>
+
+	<div class ="titleBox"><a href="<%=photo_url(photo)%>"> <%= photo.name %></a></div>
+	</div>
+</div>
 <%end%>
+
