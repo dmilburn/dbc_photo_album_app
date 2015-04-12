@@ -1,6 +1,6 @@
 <img alt="Embedded Image" src="data:image/png;base64,<%=@photo%>" width="600"/>
 
-<%if current_user && @photo_object.album.user_id == current_user.id%>
+<%if !not_album_owner?(@photo_object.album) %>
 <form action="/photos/<%=@photo_object.id%>" method="POST">
   <input type="hidden" name="_method" value="DELETE">
   <input type="submit" value="Delete">
