@@ -1,18 +1,22 @@
 body{
     margin: 0;
+    background-color: rgb(232,232,232);
+
 }
 
 nav{
-    background-color: rgba(230,230,230, .8);
-    height: 60px;
+    background-image: linear-gradient(#517fa4, #306088);
+    background-color: rgba(4,40,71,.8);
+    height: 45px;
+    color: white;
+
 }
 
 #home-button{
     padding-left: 20px;
     width: 100px;
-    display:inline;
-    line-height: 60px;
-    color: rgb(120,120,120);
+    display: inline;
+    line-height: 50px;
 }
 
 nav ul{
@@ -22,21 +26,25 @@ nav ul{
     margin: 0;
     padding-right: 40px;
     overflow: hidden;
+    font-size: 1.3em;
+    font-family: Helvetica;
+    color: inherit;
 }
 
-li {
+nav ul li {
     float: right;
-    padding: 20px 0 20px 0;
+    padding: 20px 6px 20px 6px;
+    border-right: 1px solid rgba(255,255,255, .1);
 }
 
 a:link, a:visited {
     display:block;
-    padding: 5px;
     text-decoration: none;
+    color: inherit;
 }
 
 a:hover, a:active{
-    background-color: rgb(240,240,240);
+    background-color: #517fa4;
 }
 
 .container {
@@ -55,7 +63,6 @@ img{
 
 a {
     text-decoration: none;
-    color: rgb(120,120,120);
 }
 
 .album-cover{
