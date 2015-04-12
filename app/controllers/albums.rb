@@ -1,6 +1,20 @@
 #albums routes
 enable :sessions
 
+get '/' do
+  albums = Album.where(public: true)
+  @photos = []
+  albums.each do |album|
+    album.photos.each do |photo|
+      @photos << photo
+    end
+  end
+  @photos.shuffle!
+  erb :'index'
+end
+
+
+
 #show all of a user's albums
 get '/users/:id/albums' do |id|
   if !current_user || id != current_user.id.to_s
