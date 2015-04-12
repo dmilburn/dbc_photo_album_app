@@ -9,8 +9,12 @@ nav{
     height: 45px;
     color: white;
     font-size: 1.3em;
-    font-family: 'Alegreya';
-    font-weight: bold;
+    font-family: 'proxima-nova','Helvetica Neue',Arial,Helvetica,sans-serif;
+    font-weight: 400;
+    text-shadow: 0 1px 0 rgba(3,27,47,.5);
+    border-bottom: 1px solid #1c5380;
+    border-bottom-color: rgba(4,40,71,.8);
+    box-shadow: 0 1px 0 rgba(111,151,182,.5)inset,0 -1px 0 rgba(111,151,182,.2)inset,0 1px 1px rgba(0,0,0,.2);
 }
 
 #home-button{
@@ -23,21 +27,22 @@ nav{
 }
 
 nav ul{
+    padding: 13px 20px 13px 0;
     width:100%;
     vertical-align: middle;
     float: right;
     list-style-type: none;
     margin: 0;
-    padding-right: 20px;
     overflow: hidden;
 
     color: inherit;
 }
 
 nav ul li {
+    padding: 0 10px;
     float: right;
-    padding: 20px 6px 20px 6px;
     border-right: 1px solid rgba(255,255,255, .1);
+    box-shadow: inset 1px 0 0 rgba(255,255,255,.1);
 }
 
 /*creates left side border on "upload photo*/
