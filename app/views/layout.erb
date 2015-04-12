@@ -17,20 +17,20 @@
     <script src="/js/application.js"></script>
     <title></title>
   </head>
-  <body>
+  <body class="no-touch">
     <nav>
-      <!-- add partial for delete album if they're in an album/photo -->
-      <p id ="home-button">FLICKGURBOX</p>
       <ul>
+        <!-- refactor this into partials -->
         <%if current_user%>
-        <li><a href="/logout">Sign out</a></li>
+          <li><a href="/logout">Sign out</a></li>
+          <li><a href="/albums/new">Create Album</a></li>
+          <li><a href="/users/<%=current_user.id%>/albums">My Albums</a></li>
+             <%= erb :'_uploadpopup' %>
         <%else%>
-        <li><a href="/signup">Sign Up</a></li>
-        <li><a href="/login">Sign in</a></li>
+          <li><a href="/signup">Sign Up</a></li>
+          <li><a href="/login">Sign in</a></li>
         <%end%>
-        <li><a href="/photos/upload">Upload Photo</a></li>
-        <li><a href="/albums/new">Create Album</a></li>
-        <li><a href="/albums">My Albums</a></li>
+        <li id ="home-button">FLIKGURGRAM</li>
       </ul>
     </nav>
     <div class ="container">

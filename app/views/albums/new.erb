@@ -2,8 +2,11 @@
 	<label>Title</label><br>
 	<input type="text" name="album[name]"><br>
 	<label>Body</label><br>
-	<textarea class ="body-area" name="album[description]"></textarea><br>
-	<input type="hidden" name="album[user_id]" value = 1 >
+	<textarea rows = "10" cols= "30" class ="body-area" name="album[description]"></textarea><br>
+  <label>Make this album:</label><br>
+  Public<input type = "radio" name = "album[public]" value = "true" >
+  Private<input type = "radio" name = "album[public]" value = "false" checked >
+	<input type="hidden" name="album[user_id]" value = "<%=current_user.id%>" >
 	<input type="submit"><%=flash[:notice]%>
 </form>
 

@@ -1,0 +1,3 @@
+album links/images
+
+<a href="<%=album_url(album)%>"> <img class="cover" src="data:image/png;base64, <%=encode(Photo.find_by(album_id: album.id)) if !Photo.find_by(album_id: album.id).nil?%>"></a> 

@@ -1,114 +1,165 @@
-body{
+html, body{
     margin: 0;
+    background-color: rgb(232,232,232);
+    height: 100%;
 }
 
 nav{
-    background-color: rgba(230,230,230, .8);
-    height: 60px;
+    background-image: linear-gradient(#517fa4, #306088);
+    background-color: rgba(4,40,71,.8);
+    height: 45px;
+    color: white;
+    font-size: 1.3em;
+    font-family: 'proxima-nova','Helvetica Neue',Arial,Helvetica,sans-serif;
+    font-weight: 400;
+    text-shadow: 0 1px 0 rgba(3,27,47,.5);
+    border-bottom: 1px solid #1c5380;
+    border-bottom-color: rgba(4,40,71,.8);
+    box-shadow: 0 1px 0 rgba(111,151,182,.5)inset,0 -1px 0 rgba(111,151,182,.2)inset,0 1px 1px rgba(0,0,0,.2);
 }
 
 #home-button{
-    padding-left: 20px;
+    float: left;
+    padding-left: 40px;
     width: 100px;
-    display:inline;
-    line-height: 60px;
-    color: rgb(120,120,120);
+    display: inline;
+    font-size: inherit;
+    border-right: none;
 }
 
 nav ul{
+    padding: 15px 20px 13px 0;
+    width:100%;
+    vertical-align: middle;
     float: right;
-    display:inline-block;
     list-style-type: none;
     margin: 0;
-    padding-right: 40px;
+    overflow: hidden;
+
+    color: inherit;
+}
+
+nav ul li {
+    padding: 0 10px;
+    float: right;
+    border-right: 1px solid rgba(255,255,255, .1);
+    box-shadow: inset 1px 0 0 rgba(255,255,255,.1);
+}
+
+/*creates left side border on "upload photo*/
+nav ul li:nth-child(4) {
+    border-left: 1px solid rgba(255,255,255, .1);
+}
+
+
+
+.container {
+    overflow:hidden;
+    margin:10px;
+}
+
+
+.box {
+    float: left;
+    position: relative;
+    width: 25%;
+    padding-bottom: 25%;
+    /*background-color: red;*/
+}
+
+.boxInner{
+    background-color: black;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right:10px;
+    top: 10px;
     overflow: hidden;
 }
 
-li {
-    float: right;
-    padding: 20px 0 20px 0;
+.boxInner img{
+    width: 100%;
+}
+
+.boxInner .titleBox {
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   margin-bottom: -50px;
+   background: #000;
+   background: rgba(0, 0, 0, 0.5);
+   color: #FFF;
+   padding: 10px;
+   text-align: center;
+   -webkit-transition: all 0.3s ease-out;
+   -moz-transition: all 0.3s ease-out;
+   -o-transition: all 0.3s ease-out;
+   transition: all 0.3s ease-out;
+}
+
+body.no-touch .boxInner:hover .titleBox, body.touch .boxInner.touchFocus .titleBox {
+   margin-bottom: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited{
+    text-decoration: none;
 }
 
 a:link, a:visited {
     display:block;
-    padding: 5px;
     text-decoration: none;
+    color: inherit;
 }
 
+img.cover{
+    width:100%;
+    height:100%;
+}
+
+/*for single photo view*/
+.wrapper{
+  margin-top: 5%;
+  text-align: center;
+}
+
+.single-photo{
+}
+
+@media only screen and (max-width : 480px) {
+   /* Smartphone view: 1 tile */
+   .box {
+      width: 100%;
+      padding-bottom: 100%;
+   }
+}
+@media only screen and (max-width : 650px) and (min-width : 481px) {
+   /* Tablet view: 2 tiles */
+   .box {
+      width: 50%;
+      padding-bottom: 50%;
+   }
+}
+@media only screen and (max-width : 1050px) and (min-width : 651px) {
+   /* Small desktop / ipad view: 3 tiles */
+   .box {
+      width: 33.3%;
+      padding-bottom: 33.3%;
+   }
+}
+@media only screen and (max-width : 1290px) and (min-width : 1051px) {
+   /* Medium desktop: 4 tiles */
+   .box {
+      width: 25%;
+      padding-bottom: 25%;
+   }
+}
+
+/*
 a:hover, a:active{
-    background-color: rgb(240,240,240);
-}
-
-.container {
-    margin: 80px auto;
-    width: 80%;
-    min-width: 820px;
-    max-width: 980px;
-    padding: 10px 20px 20px 20px;
-    border: 2px solid black;
-}
-
-img{
-    width:30%;
-    margin: 20px;
-}
-
-a {
-    text-decoration: none;
-    color: rgb(120,120,120);
-}
-
-a:visited{
-    text-decoration: none;
-}
-
-.title{
-    margin: 0 auto;
-}
-
-
-/*nav{
-    height: 70px;
-    background-color: rgb(240,240,240);
-    background-image: gray;
-}
-
-body{
-    margin: 0 auto;
-    font-family: 'Alegreya';
-    font-size: 1.6em;
-    background-color: rgb(240,240,240);
-    color: rgb(205,205,205);
-}
-
-
-
-th {
-    text-align: left;
-}
-
-.inline{
-    
-}
-
-
-.body-area{
-    height: 200px;
-    width: 50%;
-}
-
-.form{
-        font-family: 'Alegreya';
-
-    width:50%;
-    height:80%;
-}
-
-a {
-    color:rgb(205,205,205);
-text-decoration: none;  
-}
-
-a:visited{
-    text-decoration: none;
+    background-color: #517fa4;
 }*/

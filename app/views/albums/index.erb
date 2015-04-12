@@ -1,5 +1,14 @@
-<h1> Albums <h1>
-
+<!-- <h1> Albums </h1> -->
 <%@albums.each do |album| %>
-	<a href="<%=album_url(album)%>"> <%= album.name %></a>
+	<!-- hacky and wrong. Refactor into partial/helpers -->
+	<!-- refactor album name text into partial -->
+	<div class="box">
+		<div class = "boxInner"><img class="cover" src="data:image/png;base64, <%=encode(Photo.find_by(album_id: album.id)) if !Photo.find_by(album_id: album.id).nil?%>">		
+			<div class ="titleBox">
+				<a href="<%=album_url(album)%>"><%=album.name%></a>
+			</div>
+		</div>
+	</div>
 <%end%>
+
+

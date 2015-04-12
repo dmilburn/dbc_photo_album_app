@@ -2,16 +2,12 @@ enable :sessions
 
 
 get '/' do
-  if current_user
-    redirect '/albums'
-  else
-    redirect '/login'
-  end
+  erb :'index'
 end
 
 get '/login' do
   if current_user
-    redirect '/albums'
+    redirect '/'
   else
     erb :'auth/login'
   end
@@ -21,30 +17,35 @@ post '/login' do
   user = User.find_by(name: params[:name])
   if user && user.authenticate(params[:password])
     session[:user_id] = user.id
-    redirect '/albums'
   else
     flash[:error] = "Could not find your account. Please try again."
     redirect '/login'
   end
+  redirect '/'
 end
 
 get '/signup' do
   if current_user
-    redirect '/albums'
+    redirect '/'
   else
     erb :'auth/signup'
   end
 end
 
 post '/signup' do
-  user = User.create(params[:user])
-  if user.valid?
-    session[:user_id] = user.id
-    redirect '/albums'
+  user = User.new(params[:user])
+  if params[:user][:name] == "" || params[:user][:password] == "" || params[:user][:password_confirmation] == ""
+    flash[:error] = "You need a username and a password to sign up. Please try again."
+  elsif params[:user][:password] != params[:user][:password_confirmation]
+    flash[:error] = "Your passwords didn't match. Please try again."
+  elsif !user.valid?
+    flash[:error] = "That username has already been chosen. Please try again."
   else
-    flash[:error] = "Could not create your account. Please try again."
-    redirect '/signup'
+    user.save
+    session[:user_id] = user.id
+    redirect '/'
   end
+  redirect '/signup'
 end
 
 get '/logout' do
