@@ -8,7 +8,6 @@ get '/users/:id/albums' do |id|
   else
     @albums = Album.where(user_id: id)
   end
-  # permission_check
   @photos = Photo.all
   erb :'/albums/index'
 end
@@ -17,8 +16,12 @@ end
 
 #create album
 get '/albums/new' do
-  permission_check
-  erb :'/albums/new'
+  if current_user
+    erb :'/albums/new'
+  else
+    flash[:error] = "Please create an account to make a new album."
+    redirect '/signup'
+  end
 end
 
 post '/albums' do
@@ -33,8 +36,8 @@ end
 
 #show one album
 get '/albums/:id' do |id|
-  permission_check
   @album = Album.find(id)
+  permission_check(@album)
   album_ownership_check(@album)
   @photos = @album.photos
   erb :'albums/show'
@@ -43,8 +46,8 @@ end
 #edit album
 
 get '/albums/:id/edit' do |id|
-  permission_check
   @album = Album.find(id)
+  permission_check(@album)
   album_ownership_check(@album)
   erb :'albums/edit'
 end

@@ -4,7 +4,7 @@
 <h1 class ="title"><%=@album.name%></h1>
 
 <!-- button for editing -->
-
+<%if current_user && @album.user_id == current_user.id%>
 <form action="<%=album_url(@album)%>/edit" method="GET">
 <input type="submit" name="GET" value="Edit">
 </form>
@@ -14,6 +14,7 @@
   <input type="hidden" name="_method" value="DELETE">
   <input type="submit" value="Delete">
 </form>
+<% end %>
 
 <% @photos.each do |photo| %>
 <a href="<%=photo_url(photo)%>" > <img alt="Embedded Image" src="data:image/png;base64,<%=encode(photo)%>"/></a>
