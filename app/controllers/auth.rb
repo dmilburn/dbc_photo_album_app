@@ -1,7 +1,5 @@
 enable :sessions
 
-
-
 get '/login' do
   if current_user
     redirect '/'
@@ -31,7 +29,7 @@ end
 
 post '/signup' do
   user = User.new(params[:user])
-  if params[:user][:name] == "" || params[:user][:password] == "" || params[:user][:password_confirmation] == ""
+  if empty_sign_up_field?(params[:user])
     flash[:error] = "You need a username and a password to sign up. Please try again."
   elsif params[:user][:password] != params[:user][:password_confirmation]
     flash[:error] = "Your passwords didn't match. Please try again."

@@ -1,7 +1,6 @@
 <%@photos.each do |photo| %>
 <div class="box">
   <div class = "boxInner"> <img class ="cover" src="data:image/png;base64,<%=encode(photo)%>"/>
-
   <div class ="titleBox"><a href="<%=photo_url(photo)%>"> <%= photo.name %></a></div>
   </div>
 </div>

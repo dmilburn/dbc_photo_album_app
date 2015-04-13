@@ -6,8 +6,10 @@
   <textarea class ="body-area" name="album[description]" value="<%=@album.description%>"></textarea><br>
   <!-- refactor and fix hardcoded value -->
   <label>Make this album:</label>
-  Public<input type = "radio" name = "album[public]" value = "true" <%= "checked" if @album.public  %> >
-  Private<input type = "radio" name = "album[public]" value = "false" <%= "checked" if !@album.public%>>
+    <div class = "public_private"><ul>
+  <li>Public<input type = "radio" name = "album[public]" value = "true" <%= "checked" if @album.public  %>></li>
+  <li>Private<input type = "radio" name = "album[public]" value = "false" <%= "checked" if !@album.public%> ></li>
+</ul></div>
   <input type="hidden" name="album[user_id]" value = "<%=current_user.id%>" >
   <input type="submit"><%=flash[:notice]%>
 </form>

@@ -1,21 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!--
-    normalize.css removes cross-browser differences in defaults, e.g.,
-    differences in how form elements appear between Firefox and IE
-    See: http://necolas.github.com/normalize.css/
-    -->
+    <link href="../public/favicon.ico" rel="icon" />
     <link rel="stylesheet" href="/css/normalize.css">
-    <!--
-    application.css is where you put your styles
-    -->
     <link rel="stylesheet" href="/css/application.css">
-    <!-- Load Vollkorn font -->
     <link href='http://fonts.googleapis.com/css?family=Vollkorn:400italic,400' rel='stylesheet' type='text/css'>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="/js/application.js"></script>
-    <title></title>
+    <title>$WAGSTAGRAM</title>
   </head>
   <body class="no-touch">
     <nav>
@@ -25,17 +17,17 @@
           <li><a href="/logout">Sign out</a></li>
           <li><a href="/albums/new">Create Album</a></li>
           <li><a href="/users/<%=current_user.id%>/albums">My Albums</a></li>
-             <%= erb :'_uploadpopup' %>
+          <%= erb :'_uploadpopup' %>
         <%else%>
           <li><a href="/signup">Sign Up</a></li>
           <li><a href="/login">Sign in</a></li>
         <%end%>
-        <li id ="home-button"><a href = "/"> FLIKGURGRAM</a></li>
+        <li id ="home-button"><a href = "/"> $WAGSTAGRAM </a></li>
       </ul>
     </nav>
     <div class ="wrapper">
       <div class="entry-error"><%= flash[:error] if flash[:error] %></div>
       <%= yield %>
-    </div>
+      </div>
   </body>
 </html>
