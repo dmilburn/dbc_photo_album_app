@@ -26,8 +26,8 @@ post "/photos/upload" do
   end
 end
 
-get '/photos/:id' do |photo_id|
-  @photo_object =  Photo.find(photo_id)
+get '/photos/:id' do |id|
+  @photo_object = Photo.find(id)
   privacy_guard(@photo_object.album)
   photo_binary = @photo_object.image
   @photo = Base64.encode64(photo_binary)
