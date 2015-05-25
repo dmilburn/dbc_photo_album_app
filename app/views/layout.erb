@@ -17,7 +17,7 @@
           <li><a href="/logout">Sign out</a></li>
           <li><a href="/albums/new">Create Album</a></li>
           <li><a href="/users/<%=current_user.id%>/albums">My Albums</a></li>
-          <%= erb :'_uploadpopup' %>
+          <li><a href="/photo/upload">Upload a photo</a></li>
         <%else%>
           <li><a href="/signup">Sign Up</a></li>
           <li><a href="/login">Sign in</a></li>
