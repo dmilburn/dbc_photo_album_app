@@ -17,12 +17,12 @@ end
 
 #show all of a user's albums
 get '/users/:id/albums' do |id|
-  if !current_user || id != current_user.id.to_s
-    @albums = Album.where(user_id: id, public: true)
+  user = User.find(id)
+  if current_user && current_user.id == user.id
+    @albums = user.albums
   else
-    @albums = Album.where(user_id: id)
+    @albums = user.albums.where(public: true)
   end
-  @photos = Photo.all
   erb :'/albums/index'
 end
 
