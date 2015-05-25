@@ -1,8 +1,8 @@
 # photo routes
 
 require "base64"
-require 'rubygems'
-require 'sinatra'
+# require 'rubygems'
+# require 'sinatra'
 
 #Handle GET-request (Show the upload form)
 get "/photos/upload" do
