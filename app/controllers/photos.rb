@@ -2,7 +2,7 @@ require "base64"
 
 get "/photos/upload" do
   if current_user
-    @albums = Album.where(user_id: current_user.id)
+    @albums = current_user.albums
     erb :'photos/upload'
   else
     flash[:error] = "Please create an account to upload a photo."
