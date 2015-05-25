@@ -45,14 +45,6 @@ post '/albums' do
     flash[:error] = "Album could not save without a title. Please try again."
     redirect "/albums/new"
   end
-
-  # if request.xhr?
-  #   @album = album
-  #   erb :'albums/show'
-  # else
-  #     redirect album_url(album)
-  # end
-
 end
 
 #show one album
