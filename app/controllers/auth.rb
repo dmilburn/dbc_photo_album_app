@@ -12,11 +12,11 @@ post '/login' do
   user = User.find_by(name: params[:name])
   if user && user.authenticate(params[:password])
     session[:user_id] = user.id
+    redirect '/'
   else
     flash[:error] = "Could not find your account. Please try again."
     redirect '/login'
   end
-  redirect '/'
 end
 
 get '/signup' do
