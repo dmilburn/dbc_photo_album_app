@@ -42,10 +42,9 @@ get '/photos/:id/edit' do |id|
 end
 
 put '/photos/:id/edit' do |id|
-    photo = Photo.find(id)
-    album = Album.find_by(name: @album_name)
-    photo.update(params[:photo])
-    redirect album_url(photo.album)
+  photo = Photo.find(id)
+  photo.update(params[:photo])
+  redirect album_url(photo.album)
 end
 
 delete '/photos/:id' do |id|
