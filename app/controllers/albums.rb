@@ -42,7 +42,7 @@ post '/albums' do
   if album.valid?
     redirect album_url(album)
   else
-    flash[:error] = "Album could not save without a title. Please try again."
+    flash[:error] = album.errors.full_messages.join(". ")
     redirect "/albums/new"
   end
 end
