@@ -17,12 +17,12 @@ end
 
 #show all of a user's albums
 get '/users/:id/albums' do |id|
-  if !current_user || id != current_user.id.to_s
-    @albums = Album.where(user_id: id, public: true)
+  user = User.find(id)
+  if current_user && current_user.id == user.id
+    @albums = user.albums
   else
-    @albums = Album.where(user_id: id)
+    @albums = user.albums.where(public: true)
   end
-  @photos = Photo.all
   erb :'/albums/index'
 end
 
@@ -42,17 +42,9 @@ post '/albums' do
   if album.valid?
     redirect album_url(album)
   else
-    flash[:error] = "Album could not save without a title. Please try again."
+    flash[:error] = album.errors.full_messages.join(". ")
     redirect "/albums/new"
   end
-
-  # if request.xhr?
-  #   @album = album
-  #   erb :'albums/show'
-  # else
-  #     redirect album_url(album)
-  # end
-
 end
 
 #show one album

@@ -1,22 +1,15 @@
-# photo routes
-
 require "base64"
-require 'rubygems'
-require 'sinatra'
-require 'haml'
 
-#Handle GET-request (Show the upload form)
 get "/photos/upload" do
   if current_user
-    @albums = Album.where(user_id: current_user.id)
-    erb :'photo/upload'
+    @albums = current_user.albums
+    erb :'photos/upload'
   else
     flash[:error] = "Please create an account to upload a photo."
     redirect '/signup'
   end
 end
 
-#Handle POST-request (Receive and save the uploaded file)
 post "/photos/upload" do
   begin
     upload_pic = File.open(params['upload_photo'][:tempfile], "rb").read
@@ -26,37 +19,34 @@ post "/photos/upload" do
                             description: params[:description],
                             location: params[:location],
                             album_id: photo_album.id)
+    redirect album_url(new_photo.album)
   rescue
     flash[:error] = "Photo could not save. Please try again."
     redirect 'photos/upload'
   end
-  redirect album_url(new_photo.album)
 end
 
-get '/photos/:id' do |photo_id|
-  @photo_object =  Photo.find(photo_id)
+get '/photos/:id' do |id|
+  @photo_object = Photo.find(id)
   privacy_guard(@photo_object.album)
   photo_binary = @photo_object.image
   @photo = Base64.encode64(photo_binary)
-  erb :'photo/show'
+  erb :'photos/show'
 end
 
-#edit photo
 get '/photos/:id/edit' do |id|
   @photo = Photo.find(id)
   album_owner_guard(@photo.album)
   @albums = Album.where(user_id: current_user.id)
-  erb :'photo/edit'
+  erb :'photos/edit'
 end
 
 put '/photos/:id/edit' do |id|
-    photo = Photo.find(id)
-    album = Album.find_by(name: @album_name)
-    photo.update(params[:photo])
-    redirect album_url(photo.album)
+  photo = Photo.find(id)
+  photo.update(params[:photo])
+  redirect album_url(photo.album)
 end
 
-#delete a photo
 delete '/photos/:id' do |id|
   photo = Photo.find(id)
   album = photo.album
