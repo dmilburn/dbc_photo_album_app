@@ -1,58 +1,55 @@
-# photo routes
-
 require "base64"
-require 'rubygems'
-require 'sinatra'
-require 'haml'
 
-#Handle GET-request (Show the upload form)
 get "/photos/upload" do
-  @albums = Album.all
-  permission_check
-  erb :'photo/upload'
+  if current_user
+    @albums = current_user.albums
+    erb :'photos/upload'
+  else
+    flash[:error] = "Please create an account to upload a photo."
+    redirect '/signup'
+  end
 end
 
-#Handle POST-request (Receive and save the uploaded file)
 post "/photos/upload" do
-  upload_pic = File.open(params['upload_photo'][:tempfile], "rb").read
-  photo_album = Album.find_by(name: params['album_name'])
-  new_photo = Photo.create(image: upload_pic,
-                          name: params[:photo_name],
-                          description: params[:description],
-                          location: params[:location],
-                          album_id: photo_album.id)
-  redirect photo_url(new_photo)
+  begin
+    upload_pic = File.open(params['upload_photo'][:tempfile], "rb").read
+    photo_album = Album.find_by(name: params['album_name'])
+    new_photo = Photo.create(image: upload_pic,
+                            name: params[:photo_name],
+                            description: params[:description],
+                            location: params[:location],
+                            album_id: photo_album.id)
+    redirect album_url(new_photo.album)
+  rescue
+    flash[:error] = "Photo could not save. Please try again."
+    redirect 'photos/upload'
+  end
 end
 
-get '/photos/:id' do |photo_id|
-  permission_check
-  @photo_object =  Photo.find(photo_id)
+get '/photos/:id' do |id|
+  @photo_object = Photo.find(id)
+  privacy_guard(@photo_object.album)
   photo_binary = @photo_object.image
   @photo = Base64.encode64(photo_binary)
-  erb :'photo/show'
+  erb :'photos/show'
 end
 
-#edit photo
 get '/photos/:id/edit' do |id|
-  permission_check
   @photo = Photo.find(id)
-  @albums = Album.all
-  erb :'photo/edit'
+  album_owner_guard(@photo.album)
+  @albums = Album.where(user_id: current_user.id)
+  erb :'photos/edit'
 end
 
 put '/photos/:id/edit' do |id|
-    photo = Photo.find(id)
-    album = Album.find_by(name: @album_name)
-    photo.update(params[:photo])
-    redirect "/photos/#{photo.id}"
+  photo = Photo.find(id)
+  photo.update(params[:photo])
+  redirect album_url(photo.album)
 end
 
-#delete a photo
 delete '/photos/:id' do |id|
   photo = Photo.find(id)
   album = photo.album
   photo.destroy!
   redirect album_url(album)
-  # "This will redirect to the delete photo's album"
-  #redirect '../albums'
 end

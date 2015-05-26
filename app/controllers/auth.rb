@@ -1,17 +1,8 @@
 enable :sessions
 
-
-get '/' do
-  if current_user
-    redirect '/albums'
-  else
-    redirect '/login'
-  end
-end
-
 get '/login' do
   if current_user
-    redirect '/albums'
+    redirect '/'
   else
     erb :'auth/login'
   end
@@ -21,7 +12,7 @@ post '/login' do
   user = User.find_by(name: params[:name])
   if user && user.authenticate(params[:password])
     session[:user_id] = user.id
-    redirect '/albums'
+    redirect '/'
   else
     flash[:error] = "Could not find your account. Please try again."
     redirect '/login'
@@ -30,19 +21,19 @@ end
 
 get '/signup' do
   if current_user
-    redirect '/albums'
+    redirect '/'
   else
     erb :'auth/signup'
   end
 end
 
 post '/signup' do
-  user = User.create(params[:user])
-  if user.valid?
+  user = User.new(params[:user])
+  if user.save
     session[:user_id] = user.id
-    redirect '/albums'
+    redirect '/'
   else
-    flash[:error] = "Could not create your account. Please try again."
+    flash[:error] = user.errors.full_messages.join(". ")
     redirect '/signup'
   end
 end

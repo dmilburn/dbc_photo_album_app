@@ -1,28 +1,56 @@
 #albums routes
 enable :sessions
 
-#show all
-get '/albums' do
-  permission_check
-  @albums = Album.all
+get '/' do
+  albums = Album.where(public: true)
+  @photos = []
+  albums.each do |album|
+    album.photos.each do |photo|
+      @photos << photo
+    end
+  end
+  @photos.shuffle!
+  erb :'index'
+end
+
+
+
+#show all of a user's albums
+get '/users/:id/albums' do |id|
+  user = User.find(id)
+  if current_user && current_user.id == user.id
+    @albums = user.albums
+  else
+    @albums = user.albums.where(public: true)
+  end
   erb :'/albums/index'
 end
 
+
 #create album
 get '/albums/new' do
-  permission_check
-  erb :'/albums/new'
+  if current_user
+    erb :'/albums/new'
+  else
+    flash[:error] = "Please create an account to make a new album."
+    redirect '/signup'
+  end
 end
 
 post '/albums' do
   album = Album.create(params[:album])
-  redirect "#{album_url(album)}"
+  if album.valid?
+    redirect album_url(album)
+  else
+    flash[:error] = album.errors.full_messages.join(". ")
+    redirect "/albums/new"
+  end
 end
 
 #show one album
 get '/albums/:id' do |id|
-  permission_check
   @album = Album.find(id)
+  privacy_guard(@album)
   @photos = @album.photos
   erb :'albums/show'
 end
@@ -30,15 +58,20 @@ end
 #edit album
 
 get '/albums/:id/edit' do |id|
-  permission_check
   @album = Album.find(id)
+  album_owner_guard(@album)
   erb :'albums/edit'
 end
 
 put '/albums/:id' do |id|
   album = Album.find(id)
-  album.update(params[:album])
-  redirect "#{album_url(album)}"
+  begin
+    album.update!(params[:album])
+  rescue
+    flash[:error] = "Album update didn't save. Please try again."
+    redirect album_url(album) + "/edit"
+  end
+  redirect album_url(album)
 end
 
 
@@ -50,5 +83,5 @@ delete '/albums/:id/delete' do |id|
   photos.each do |photo|
     photo.destroy
   end
-  redirect '/albums'
+  redirect '/'
 end

@@ -5,13 +5,9 @@
 
 User.create(name: "email", password: "monkey")
 
-Album.create(name: "Travel", user_id: 1)
+Album.create(name: "Travel", user_id: 1, public: true)
 
-Album.create(name: "Family", user_id: 1)
-Album.create(name: "Selfies", user_id: 1)
-Album.create(name: "Times I fell", user_id: 1)
+picture_1 = File.open("/Users/deborahmilburn/Pictures/Face Pots.jpg", 'rb').read
 
-read_picture = File.open("/Users/charles/Desktop/borat.jpg", 'rb').read
-
-Photo.create(image: read_picture, album_id: 1)
+Photo.create(image: picture_1, album_id: 1)
 

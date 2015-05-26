@@ -5,7 +5,6 @@ class CreatePhotos < ActiveRecord::Migration
       t.text :description
       t.binary :image, null:false
       t.string :location
-
       t.references :album, null:false
 
       t.timestamps

@@ -1,41 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!--
-    normalize.css removes cross-browser differences in defaults, e.g.,
-    differences in how form elements appear between Firefox and IE
-    See: http://necolas.github.com/normalize.css/
-    -->
+    <link href="../public/favicon.ico" rel="icon" />
     <link rel="stylesheet" href="/css/normalize.css">
-    <!--
-    application.css is where you put your styles
-    -->
     <link rel="stylesheet" href="/css/application.css">
-    <!-- Load Vollkorn font -->
     <link href='http://fonts.googleapis.com/css?family=Vollkorn:400italic,400' rel='stylesheet' type='text/css'>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="/js/application.js"></script>
-    <title></title>
+    <title>$WAGSTAGRAM</title>
   </head>
-  <body>
+  <body class="no-touch">
     <nav>
-      <!-- add partial for delete album if they're in an album/photo -->
-      <p id ="home-button">FLICKGURBOX</p>
       <ul>
+        <!-- refactor this into partials -->
         <%if current_user%>
-        <li><a href="/logout">Sign out</a></li>
+          <li><a href="/logout">Sign out</a></li>
+          <li><a href="/albums/new">Create Album</a></li>
+          <li><a href="/users/<%=current_user.id%>/albums">My Albums</a></li>
+          <li><a href="/photos/upload">Upload a photo</a></li>
         <%else%>
-        <li><a href="/signup">Sign Up</a></li>
-        <li><a href="/login">Sign in</a></li>
+          <li><a href="/signup">Sign Up</a></li>
+          <li><a href="/login">Sign in</a></li>
         <%end%>
-        <li><a href="/photos/upload">Upload Photo</a></li>
-        <li><a href="/albums/new">Create Album</a></li>
-        <li><a href="/albums">My Albums</a></li>
+        <li id ="home-button"><a href = "/"> $WAGSTAGRAM </a></li>
       </ul>
     </nav>
-    <div class ="container">
+    <div class ="wrapper">
       <div class="entry-error"><%= flash[:error] if flash[:error] %></div>
       <%= yield %>
-    </div>
+      </div>
   </body>
 </html>
